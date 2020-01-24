@@ -1,0 +1,131 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+
+        <h5 class="box-title text-primary">{{isletmeEkle?'İşletme':(firmaEkle?'Firma':'Şube')}} Ekle</h5>
+        <form class="example-form" [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">
+          <div class="form-row">
+            <div class="col-md-6 mb-3"><label for="validationCustom02" class="active">Rol</label>
+              <select class="form-control mb-3" formControlName="Rol">
+                <option></option>
+                <option value="Isletme" *ngIf="adminRole&&isletmeEkle">İşletme</option>
+                <option value="Firma" *ngIf="!isletmeEkle&&!subeEkle">Firma</option>
+                <option value="Sube" *ngIf="!isletmeEkle&&!firmaEkle">Şube</option>
+              </select>
+              <div class="valid-feedback-form" *ngIf="!regiForm.get('Rol').valid && regiForm.get('Rol').touched">Lütfen
+                seçim yapın.</div>
+            </div>
+            <div class="col-md-6 mb-3" *ngIf="regiForm.get('Rol').value === 'Sube'"><label for="validationCustom02"
+                class="active">Ana Firma</label>
+              <select class="form-control mb-3" formControlName="BagliOlduguID">
+                <option value="0"></option>
+                <option *ngFor="let item of firmalar" value="{{item.FirmaID}}">{{item.FirmaAd}}</option>
+              </select>
+              <div class="valid-feedback-form"
+                *ngIf="!regiForm.get('BagliOlduguID').valid && regiForm.get('BagliOlduguID').touched">Lütfen seçim
+                yapın.</div>
+            </div>
+            <div class="col-md-6 mb-3" *ngIf="regiForm.get('Rol').value === 'Firma'"><label for="validationCustom02"
+              class="active">Ana İşletme</label>
+            <select class="form-control mb-3" formControlName="BagliOlduguID">
+              <option value="0"></option>
+              <option *ngFor="let item of isletmeler" value="{{item.FirmaID}}">{{item.FirmaAd}}</option>
+            </select>
+            <div class="valid-feedback-form"
+              *ngIf="!regiForm.get('BagliOlduguID').valid && regiForm.get('BagliOlduguID').touched">Lütfen seçim
+              yapın.</div>
+          </div>
+            <div class="col-md-6 mb-3"><label class="active">Firma Ad</label>
+              <input class="form-control" type="text" placeholder="Firma Ad" formControlName="FirmaAd">
+              <div class="valid-feedback-form"
+                *ngIf="!regiForm.get('FirmaAd').valid && regiForm.get('FirmaAd').touched">Lütfen bu
+                alanı doldurun.</div>
+            </div>
+            <div class="col-md-6 mb-3"><label for="validationCustom02" class="active">{{(!isletmeEkle&&!firmaEkle&&!subeEkle) ? 'Kullanıcı Adı' : 'Kısa Tanım'}}</label>
+              <input class="form-control" type="text" autocomplete="off" placeholder="{{(!isletmeEkle&&!firmaEkle&&!subeEkle) ? 'Kullanıcı Adı' : 'Kısa Tanım'}}" formControlName="FirmaKisaAd">
+              <div class="valid-feedback-form"
+                *ngIf="!regiForm.get('FirmaKisaAd').valid && regiForm.get('FirmaKisaAd').touched">Lütfen bu
+                alanı doldurun.</div>
+            </div>
+            <div class="col-md-6 mb-3" style="display: none"><label for="validationCustom02" class="active">Şifre</label>
+              <input class="form-control" type="password" placeholder="Şifre" formControlName="Sifre">
+              <div class="valid-feedback-form" *ngIf="!regiForm.get('Sifre').valid && regiForm.get('Sifre').touched">
+                Lütfen bu
+                alanı doldurun.</div>
+            </div>
+            <div class="col-md-6 mb-3"><label for="validationCustom02" class="active">Kayıt Tarihi</label>
+              <input class="form-control" type="date" formControlName="KayitTarihi">
+              <div class="valid-feedback-form"
+                *ngIf="!regiForm.get('KayitTarihi').valid && regiForm.get('KayitTarihi').touched">Lütfen bu
+                alanı doldurun.</div>
+            </div>
+            <div class="col-md-6 mb-3"><label for="validationCustom02" class="active">Telefon Numarası</label>
+              <input class="form-control" type="text" placeholder="Telefon Numarası" formControlName="TelefonNumarasi">
+              <div class="valid-feedback-form"
+                *ngIf="!regiForm.get('TelefonNumarasi').valid && regiForm.get('TelefonNumarasi').touched">Lütfen bu
+                alanı doldurun.</div>
+            </div>
+            <div class="col-md-6 mb-3"><label for="validationCustom02" class="active">Vergi/TC.No</label>
+              <input class="form-control" type="text" placeholder="Vergi/TC.No" formControlName="VergiTCNo">
+              <div class="valid-feedback-form"
+                *ngIf="!regiForm.get('VergiTCNo').valid && regiForm.get('VergiTCNo').touched">Lütfen bu
+                alanı doldurun.</div>
+            </div>
+            <div class="col-md-6 mb-3"><label for="validationCustom02" class="active">Eposta</label>
+              <input class="form-control" type="text" placeholder="Eposta" formControlName="Eposta">
+              <div class="valid-feedback-form" *ngIf="!regiForm.get('Eposta').valid && regiForm.get('Eposta').touched">
+                Lütfen bu
+                alanı doldurun.</div>
+            </div>
+            <div class="col-md-6 mb-3"><label for="validationCustom02" class="active">Adres</label>
+              <textarea class="form-control" type="text" placeholder="Adres" formControlName="Adres"></textarea>
+              <div class="valid-feedback-form" *ngIf="!regiForm.get('Adres').valid && regiForm.get('Adres').touched">
+                Lütfen bu
+                alanı doldurun.</div>
+            </div>
+            <!-- <div class="col-md-6 mb-3"><label for="validationCustom02" class="active">Fatura Adresi</label>
+              <textarea class="form-control" type="text" placeholder="Fatura Adresi"
+                formControlName="FaturaAdresi"></textarea>
+              <div class="valid-feedback-form"
+                *ngIf="!regiForm.get('FaturaAdresi').valid && regiForm.get('FaturaAdresi').touched">Lütfen bu
+                alanı doldurun.</div>
+            </div> -->
+            <div class="col-md-6 mb-3" *ngIf="!isletmeEkle"><label for="validationCustom02" class="active">Basınç</label>
+              <select class="form-control mb-3" formControlName="PsiBar">
+                <option value="psi">psi</option>
+                <option value="bar">bar</option>
+              </select>
+              <div class="valid-feedback-form" *ngIf="!regiForm.get('PsiBar').valid && regiForm.get('PsiBar').touched">
+                Lütfen
+                seçim yapın.</div>
+            </div>
+
+            <div class="col-md-6 mb-3" *ngIf="!isletmeEkle"><label for="validationCustom02" class="active">Para Birimi</label>
+              <ng-select2 [data]="paraBirimler" formControlName="ParaBirimID"
+                [placeholder]="'Lütfen bir para birimi seçiniz..'">
+              </ng-select2>
+              <div class="valid-feedback-form"
+                *ngIf="!regiForm.get('ParaBirimID').valid && regiForm.get('ParaBirimID').touched">Lütfen
+                seçim yapın.</div>
+            </div>
+
+            <div class="col-md-6 mb-3" *ngIf="!isletmeEkle"><label for="validationCustom02" class="active">Diş D. Ölçüm Sayısı</label>
+              <select class="form-control mb-3" formControlName="DisDerinligiSayisi">
+                <option value="{{item}}" *ngFor="let item of [1,2,3,4,5,6,7,8,9]">{{item}}</option>
+              </select>
+              <div class="valid-feedback-form"
+                *ngIf="!regiForm.get('DisDerinligiSayisi').valid && regiForm.get('DisDerinligiSayisi').touched">Lütfen
+                seçim yapın.</div>
+            </div>
+
+            <div class="col-md-6 mb-3" *ngIf="firmaEkle||subeEkle"><label for="validationCustom02" class="active">Yetkili Kişi</label>
+              <input class="form-control" type="text" placeholder="Yetkili Kişi" formControlName="YetkiliKisi">
+            </div>
+          </div>
+          <button class="btn pull-right btn-primary" [disabled]="!regiForm.valid" type="submit">Kaydet</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

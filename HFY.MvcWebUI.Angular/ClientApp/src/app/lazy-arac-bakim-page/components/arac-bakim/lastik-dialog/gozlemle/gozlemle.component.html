@@ -1,0 +1,22 @@
+<ngx-smart-modal #gozlemle identifier="gozlemle" [dismissable]="false">
+  <div class="info">
+    <div class="top_btn">
+      <h3>Gözlemler</h3>
+      <form>
+        <div *ngFor="let item of gozlemleArray; let i = index;">
+          <p>
+            <input type="checkbox" class="gozlemleCheckboxClass" id="{{item.KisaAd}}" />
+            <label for="{{item.KisaAd}}">{{item.Ad}}</label>
+          </p>
+          <br>
+        </div>
+      </form>
+      <div class="ok" (click)="gozlemleSave()">
+        <input type="image" src="assets/aks-iskeletleri/lastik-dialog/lastik-bilgisi/img/okk.png">
+      </div>
+      <div class="close" (click)="gozlemle.close()">
+        <img src="assets/aks-iskeletleri/lastik-dialog/lastik-bilgisi/img/cancel.png">
+      </div>
+    </div>
+  </div>
+</ngx-smart-modal>

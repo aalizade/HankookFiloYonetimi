@@ -1,0 +1,80 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+
+                <h5 class="box-title text-primary">Aks Pozisyon Ekle</h5>
+                <form class="example-form" [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3"><label class="active">Ad</label>
+                            <input class="form-control" type="text" placeholder="Ad" formControlName="Ad">
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('Ad').valid && regiForm.get('Ad').touched">Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+                        <div class="col-md-6 mb-3"><label for="validationCustom02" class="active">Aks</label>
+                            <input class="form-control" type="number" placeholder="Aks No" formControlName="AksNo">
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('AksNo').valid && regiForm.get('AksNo').touched">Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+                        <div class="col-md-6 mb-3"><label for="validationCustom02" class="active">Pozisyon</label>
+                            <input class="form-control" type="number" placeholder="Pozisyon" formControlName="Pozisyon">
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('Pozisyon').valid && regiForm.get('Pozisyon').touched">Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+                        <div class="col-md-6 mb-3"><label for="validationCustom02" class="active">Ön/Arka</label>
+                            <select class="form-control mb-3" formControlName="OnArkaId">
+                                <option value="1">Ön</option>
+                                <option value="2">Arka</option>
+                                <option value="3">Multi</option>
+                            </select>
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('OnArkaId').valid && regiForm.get('OnArkaId').touched">Lütfen
+                                seçim yapın.</div>
+                        </div>
+                        <div class="col-md-6 mb-3"><label for="validationCustom02" class="active">Sol/Sağ</label>
+                            <select class="form-control mb-3" formControlName="SolSagId">
+                                <option value="1">Sol</option>
+                                <option value="2">Sağ</option>
+                            </select>
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('SolSagId').valid && regiForm.get('SolSagId').touched">Lütfen
+                                seçim yapın.</div>
+                        </div>
+                        <div class="col-md-6 mb-3"><label for="validationCustom02" class="active">İç/Dış</label>
+                            <select class="form-control mb-3" formControlName="IcDisId">
+                                <option value="0"></option>
+                                <option value="1">İç</option>
+                                <option value="2">Dış</option>
+                            </select>
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('IcDisId').valid && regiForm.get('IcDisId').touched">Lütfen
+                                seçim yapın.</div>
+                        </div>
+                        <div class="col-md-6 mb-3"><label for="validationCustom02" class="active">Çeker</label>
+                            <select class="form-control mb-3" formControlName="Ceker">
+                                <option value="0">Hayır</option>
+                                <option value="1">Evet</option>
+                            </select>
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('IcDisId').valid && regiForm.get('IcDisId').touched">Lütfen
+                                seçim yapın.</div>
+                        </div>
+                        <div class="col-md-6 mb-3"><label for="validationCustom02" class="active">Sıra</label>
+                            <input class="form-control" type="number" formControlName="Sira">
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('Sira').valid && regiForm.get('Sira').touched">Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+
+
+                    </div>
+                    <button class="btn pull-right btn-primary" [disabled]="!regiForm.valid"
+                        type="submit">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

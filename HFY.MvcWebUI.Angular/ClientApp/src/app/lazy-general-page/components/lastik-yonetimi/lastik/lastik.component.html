@@ -1,0 +1,72 @@
+<!-- BEGIN: Page content-->
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h5 class="mb-4">Lastikler</h5>
+                        <div class="nav nav-pills nav-pills-links d-none d-sm-flex">
+                            <button routerLink="/admin/lastik-yonetimi/lastik-ekle" class="btn btn-primary mb-3"
+                                type="button">
+                                Yeni
+                                Kayıt
+                                Ekle +
+                            </button>
+                        </div>
+                    </div>
+                    <table datatable [dtOptions]="dtOptions" class="table table-hover cols-align-middle contacts-table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Firma</th>
+                                <th>Marka</th>
+                                <th>Desen</th>
+                                <th>Seri No</th>
+                                <th>Ebat</th>
+                                <th>Tip</th>
+                                <th>Lastik KM</th>
+                                <th>Diş D.</th>
+                                <th>Konum</th>
+                                <th>Plaka</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="dataTablesData?.length != 0">
+                            <tr *ngFor="let item of dataTablesData;let last=last">
+                                <td>{{ getFirma(item.FirmaID) }}</td>
+                                <td>{{ getMarka(item.LastikMarkaID) }}</td>
+                                <td>{{ getDesen(item.LastikMarkaDesenID) }}</td>
+                                <td>{{ item.SeriNo }}</td>
+                                <td>{{ getEbat(item.EbatID) }}</td>
+                                <td>{{ getLastikTip(item.LastikTipID) }}</td>
+                                <td>{{item.LastikKilometre | mask: 'dot_separator'}}</td>
+                                <td>{{item.DisSeviyesi}}</td>
+                                <td>{{ getLastikKonum(item.LastikKonumID) }}</td>
+                                <td>{{item.AracID===0 ? '' : getAracPlaka(item.AracID)}}</td>
+                                <td>
+                                    <!-- <a routerLink="/admin/lastik-yonetimi/lastik-olcum-ekle/{{item.LastikID}}"
+                                        title="Ölçümler"><i class="ft-shuffle"
+                                            style="font-size:20px;margin-right: 10px"></i></a> -->
+                                    <a routerLink="/admin/lastik-yonetimi/lastik-guncelle/{{item.LastikID}}"
+                                        title="Düzenle">
+                                        <i class="ft-edit" style="font-size:20px;margin-right: 10px"></i>
+                                    </a>
+                                    <a (click)="lastikSil(item.LastikID)"
+                                        *ngIf="getLastikKonum(item.LastikKonumID) !== 'Araç Üstünde'" title="Sil">
+                                        <i class="ft-delete"
+                                            style="font-size:20px;margin-right: 10px;color:red;cursor: pointer;"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody *ngIf="dataTablesData?.length == 0">
+                            <tr>
+                                <td colspan="3" class="no-data-available">No data!</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- END: Page content-->

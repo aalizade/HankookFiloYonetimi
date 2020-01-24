@@ -1,0 +1,79 @@
+<ngx-smart-modal #aracKayit identifier="aracKayit" [dismissable]="false">
+    <div class="info">
+        <form [formGroup]="olcumleFirstScreenForm" (ngSubmit)="save(olcumleFirstScreenForm.value)">
+            <div class="top_btn_giris">
+                <div>
+                    <h3>Araç Kayıt [{{seriNo}}]</h3>
+                    <div class="son_servis_date">
+                        <p>Son İşlem:</p>
+                        <div class="clear"></div>
+                        <div class="son_servis_gnl">
+                            <ul>
+                                <li>
+                                    <input type="text" [value]="sonServisTarihi | date:'dd.MM.yyyy'"
+                                        class="textInputSonServis" disabled="disabled">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="son_arac_ust">
+                        <div class="son_arac_km" (click)="sonAracKilometreYeniyeAktar()">
+                            <p>Son Arç. Km:</p>
+                        </div>
+                        <div class="son_arac_gnl">
+                            <ul>
+                                <li>
+                                    <input class="textInput" [value]="guncelAracKM | mask:'dot_separator'"
+                                        disabled="disabled" placeholder="">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="servis_date">
+                        <p>Servis:</p>
+                        <div class="clear"></div>
+                        <div class="servis_gnl">
+                            <ul>
+                                <li>
+                                    <input type="date" formControlName="ServisTarihi">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="arac_ust">
+                        <div class="arac_km">
+                            <p [style.color]="(!olcumleFirstScreenForm.get('AracKilometre').valid) ? 'red' : '#000'">
+                                Araç KM:</p>
+                        </div>
+                        <div class="arac_gnl">
+                            <ul>
+                                <li>
+                                    <input class="textInput" type="text" mask="dot_separator"
+                                        [formControl]="olcumleFirstScreenForm.get('AracKilometre')">
+                                </li>
+                                <li>
+                                    <br>
+                                    <b>Lstk. Srv. KM: {{sonAracKilometre | mask:'dot_separator'}}</b>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+
+                    <div class="bottom_btn">
+
+                        <div class="ok">
+                            <input type="image" [disabled]="!olcumleFirstScreenForm.valid"
+                                src="assets/aks-iskeletleri/lastik-dialog/olcumle/img/okk.png">
+                        </div>
+                        <div class="close" (click)="aracKayit.close()">
+                            <img src="assets/aks-iskeletleri/lastik-dialog/olcumle/img/cancel.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</ngx-smart-modal>
+
+<div #OlcumleContainer></div>

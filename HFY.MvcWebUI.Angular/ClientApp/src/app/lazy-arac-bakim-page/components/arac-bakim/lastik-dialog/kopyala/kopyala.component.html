@@ -1,0 +1,29 @@
+<ngx-smart-modal #kopyala identifier="kopyala" [dismissable]="false">
+  <div class="info">
+    <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">
+      <div class="top_btn">
+        <h3>Lastik Kopyalanıyor... </h3>
+        <div class="lastik_gnl">
+          <ul>
+            <li>
+              <p>Montaj Tarihi: </p>
+              <input class="textInputSeri" style="font-size:16.5px" type="date" [formControl]="regiForm.get('Tarih')">
+            </li>
+            <li>
+              <p>Lastik Seri No: </p>
+              <input class="textInputSeri" type="text" mask="AAAA-AAAA-AAAA-AA" [validation]="false"
+                style="text-transform: uppercase;" [formControl]="regiForm.get('SeriNumarasi')">
+            </li>
+          </ul>
+        </div>
+        <div class="ok">
+          <input type="image" [disabled]="!regiForm.valid" type="image"
+            src="assets/aks-iskeletleri/lastik-dialog/lastik-bilgisi/img/okk.png">
+        </div>
+        <div class="close" (click)="kopyala.close()">
+          <img src="assets/aks-iskeletleri/lastik-dialog/lastik-bilgisi/img/cancel.png">
+        </div>
+      </div>
+    </form>
+  </div>
+</ngx-smart-modal>

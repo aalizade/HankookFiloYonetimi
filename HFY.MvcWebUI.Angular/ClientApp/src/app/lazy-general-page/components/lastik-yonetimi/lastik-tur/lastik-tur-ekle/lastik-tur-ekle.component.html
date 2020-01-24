@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="box-title text-primary">Lastik Tür Ekle</h5>
+                <form class="example-form" [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3"><label class="active">Ad</label>
+                            <input class="form-control" type="text" placeholder="Ad" formControlName="Ad">
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('Ad').valid && regiForm.get('Ad').touched">Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+                        <div class="col-md-6 mb-3"><label class="active">Kod</label>
+                            <input class="form-control" type="text" placeholder="Kod" formControlName="Kod">
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('Kod').valid && regiForm.get('Kod').touched">Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+                        <div class="col-md-6 mb-3"><label class="active">Sıra</label>
+                            <input class="form-control" type="number" placeholder="Sıra" formControlName="Sira">
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('Sira').valid && regiForm.get('Sira').touched">Lütfen bu
+                                alanı doldurun. </div>
+                        </div>
+                    </div>
+                    <button class="btn pull-right btn-primary" [disabled]="!regiForm.valid"
+                        type="submit">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

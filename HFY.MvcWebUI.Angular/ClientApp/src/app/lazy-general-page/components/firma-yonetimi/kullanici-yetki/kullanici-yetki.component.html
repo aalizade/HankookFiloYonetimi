@@ -1,0 +1,45 @@
+<!-- BEGIN: Page content-->
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h5 class="mb-4">{{firmaAd}} - Yetkili Kullanıcılar</h5>
+                        <div class="nav nav-pills nav-pills-links d-none d-sm-flex" *ngIf="adminRole||olusturanKisiGirisYapanKisiMi">
+                            <button routerLink="/admin/firma-yonetimi/kullanici-yetki-ekle/{{firmaId}}"
+                                class="btn btn-primary mb-3" type="button">Yeni
+                                Kayıt
+                                Ekle +</button>
+                        </div>
+                    </div>
+                    <table datatable [dtOptions]="dtOptions" class="table table-hover cols-align-middle contacts-table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Ad-Soyad</th>
+                                <th>Kısa Ad</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="dataTablesData?.length != 0">
+                            <tr *ngFor="let item of dataTablesData">
+                                <td>{{ getFirmaAd_KisaAd(item.FirmaID,'FirmaAd') }}</td>
+                                <td>{{ getFirmaAd_KisaAd(item.FirmaID,'FirmaKisaAd') }}</td>
+                                <td>
+                                    <a (click)="kullaniciYetkiSil(item.KullaniciYetkiID)"><i class="ft-delete" title="Sil"
+                                            *ngIf="adminRole||olusturanKisiGirisYapanKisiMi"
+                                            style="font-size:20px;margin-right: 10px;color:red;cursor: pointer;"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody *ngIf="dataTablesData?.length == 0">
+                            <tr>
+                                <td colspan="3" class="no-data-available">No data!</td>
+                            </tr>
+                        <tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- END: Page content-->

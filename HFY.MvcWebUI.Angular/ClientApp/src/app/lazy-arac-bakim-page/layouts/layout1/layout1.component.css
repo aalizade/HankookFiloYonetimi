@@ -1,0 +1,42 @@
+@import "../../../../../node_modules/toastr/build/toastr.min.css";
+@import "../../../../../node_modules/ngx-smart-modal/ngx-smart-modal.css";
+
+
+ .toast-message{
+  font-family:'Century Gothic';
+  font-size:15px;
+}
+
+ body{
+  font-family: 'Century Gothic';
+}
+
+/* CDK DRAG STYLES */
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+  }
+  
+   .depo.cdk-drag-placeholder , .hurdalik.cdk-drag-placeholder{
+    opacity:1;
+  }
+
+  .cdk-drag-placeholder {
+    opacity: 0.5;
+  }
+  
+  .cdk-drag-animating {
+    /* transition: transform 250ms cubic-bezier(0, 0, 0.2, 1); */
+  }
+
+   .swal2-container {
+    z-index: 999999;
+}
+
+ .swal2-input {
+  text-align: center !important;
+  text-transform: uppercase !important;
+   width: 300px !important;
+   font-weight: bold !important;
+  font-size:30px !important;
+}

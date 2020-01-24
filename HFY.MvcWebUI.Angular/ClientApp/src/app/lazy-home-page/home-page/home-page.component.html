@@ -1,0 +1,81 @@
+<header>
+  <div class="giris_ad">
+    <p>Hoşgeldin,<br><span>{{userNameSurname}}</span></p>
+  </div>
+  <div class="login_icon" title="Çıkış">
+    <a (click)="logout()"><img src="assets/lazy-home-page/img/power-button-off.png"></a>
+  </div>
+  <div class="user_icon" title="Kullanıcı">
+    <a><img src="assets/lazy-home-page/img/man-user.png"></a>
+  </div>
+</header>
+<ul class="back_btn" *ngIf="aracBakimMenu || lastikBakimMenu">
+  <li style="cursor: pointer"><a (click)="aracBakimMenu=false;lastikBakimMenu=false;">
+      <span><img src="assets/lazy-home-page/img/left-arrow.png" id="img1"></span>
+    </a></li>
+</ul>
+<div class="main">
+  <ul class="genel_menu" *ngIf="!aracBakimMenu && !lastikBakimMenu">
+    <li style="cursor:pointer">
+      <a (click)="aracBakimIslemi()">
+        <span>
+          <img src="assets/lazy-home-page/img/mechanical.png" />
+        </span><strong>
+          ARAÇ
+          BAKIM
+        </strong>
+      </a>
+    </li>
+    <li style="cursor:pointer">
+      <a (click)="lastikBakimIslemi()">
+        <span>
+          <img src="assets/lazy-home-page/img/wheel.png" />
+        </span><strong>
+          LASTİK
+          BAKIM
+        </strong>
+      </a>
+    </li>
+    <li style="cursor:pointer" *ngIf="!mobilGorunum">
+      <a (click)="routeAnyLazyModule('/admin')">
+        <span>
+          <img src="assets/lazy-home-page/img/book.png" />
+        </span><strong>TANIMLAR</strong>
+      </a>
+    </li>
+    <li style="cursor:pointer">
+      <a href="rapor">
+        <span>
+          <img src="assets/lazy-home-page/img/list.png" />
+        </span><strong>RAPORLAR</strong>
+      </a>
+    </li>
+  </ul>
+  <ul class="genel_menu" *ngIf="aracBakimMenu">
+    <li style="cursor:pointer"><a (click)="openDialog()">
+        <span><img src="assets/lazy-home-page/img/blueprint.png" id="img3"></span>
+        <strong class="rapor_bg" style="background-color: #6542d4">ARAÇ PLAKA</strong></a></li>
+    <li style="cursor:pointer"><a (click)="routeAnyLazyModule('/admin/arac-yonetimi/arac-ekle')">
+        <span><img src="assets/lazy-home-page/img/car-service.png" id="img1"></span>
+        <strong class="arac_bg" style="background-color: #6542d4">ARAÇ KAYIT</strong></a></li>
+  </ul>
+
+  <ul class="genel_menu" *ngIf="lastikBakimMenu">
+    <li style="cursor:pointer"><a (click)="lastikBakimOpenDialog()">
+        <span><img src="assets/lazy-home-page/img/wheel_lastik_seri_no.png" id="img1"></span>
+        <strong class="arac_bg" style="background-color: #6542d4">LASTİK SERİ NO</strong></a></li>
+    <li style="cursor:pointer"><a (click)="routeAnyLazyModule('/admin/lastik-yonetimi/lastik-ekle')">
+        <span><img src="assets/lazy-home-page/img/file_tire.png" id="img2"></span>
+        <strong class="lastik_bg" style="background-color: #6542d4">LASTİK KAYIT</strong></a></li>
+  </ul>
+</div>
+
+<div #LastikDialogContainer></div>
+
+<!-- <div class="sidenav-backdrop backdrop"></div>
+<div class="preloader-backdrop">
+  <div class="page-preloader">Loading</div>
+</div> -->
+
+
+<!-- END: Page backdrops-->

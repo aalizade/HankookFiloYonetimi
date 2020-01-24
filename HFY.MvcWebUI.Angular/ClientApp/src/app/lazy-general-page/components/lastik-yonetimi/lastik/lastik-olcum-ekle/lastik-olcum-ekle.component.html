@@ -1,0 +1,137 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="box-title text-primary">Lastik Ölçüm Ekle</h5>
+                <form class="example-form" [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="col-md-12 mb-3"><label class="active">Tarih</label>
+                                <input class="form-control" type="date" placeholder="Tarih" formControlName="Tarih">
+                                <div class="valid-feedback-form"
+                                    *ngIf="!regiForm.get('Tarih').valid && regiForm.get('Tarih').touched">Lütfen bu
+                                    alanı doldurun.</div>
+                            </div>
+                            <div class="col-md-12 mb-3"><label class="active">Araç Kilometre</label>
+                                <input class="form-control" type="text" placeholder="Araç Kilometre"
+                                    mask="dot_separator" [validation]="false"
+                                    [formControl]="regiForm.get('AracKilometre')">
+                                <div class="valid-feedback-form"
+                                    *ngIf="!regiForm.get('AracKilometre').valid && regiForm.get('AracKilometre').touched">
+                                    Lütfen bu
+                                    alanı doldurun.</div>
+                            </div>
+                            <div class="col-md-12 mb-3"><label class="active">Lastik Kilometre</label>
+                                <input class="form-control" type="text" placeholder="Lastik Kilometre"
+                                    mask="dot_separator" [validation]="false"
+                                    [formControl]="regiForm.get('LastikKilometre')">
+                                <div class="valid-feedback-form"
+                                    *ngIf="!regiForm.get('LastikKilometre').valid && regiForm.get('LastikKilometre').touched">
+                                    Lütfen bu
+                                    alanı doldurun.</div>
+                            </div>
+
+
+                            <div class="col-md-12 mb-3" *ngFor="let item of disDerinligiSayiArray; let i = index;">
+                                <label class="active">Diş Derinliği {{i + 1}}</label>
+                                <input class="form-control" type="text" mask="00.00" id="disDerinligi_{{i+1}}" value="0"
+                                    [dropSpecialCharacters]="false" [validation]="false"
+                                    placeholder="Diş Derinliği {{i + 1}}">
+                            </div>
+
+
+                            <!-- <div class="col-md-12 mb-3"><label class="active">Güvenli Diş Seviyesi</label>
+                                <input class="form-control" type="text" placeholder="Güvenli Diş Seviyesi" mask="00.00"
+                                    [dropSpecialCharacters]="false" [validation]="false"
+                                    [formControl]="regiForm.get('GuvenliDisSeviyesi')">
+                                <div class="valid-feedback-form"
+                                    *ngIf="!regiForm.get('GuvenliDisSeviyesi').valid && regiForm.get('GuvenliDisSeviyesi').touched">
+                                    Lütfen bu
+                                    alanı doldurun.</div>
+                            </div> -->
+
+                            <div class="col-md-12 mb-3"><label class="active">Basınç</label>
+                                <input class="form-control" type="number" placeholder="Basınç" formControlName="Basinc">
+                                <div class="valid-feedback-form"
+                                    *ngIf="!regiForm.get('Basinc').valid && regiForm.get('Basinc').touched">Lütfen bu
+                                    alanı doldurun.</div>
+                            </div>
+                            <div class="col-md-12 mb-3"><label for="validationCustom02" class="active">Basınç
+                                    Alınamadı</label>
+                                <div class="form-group my-1">
+                                    <label class="ui-switch switch-icon">
+                                        <input type="checkbox" formControlName="BasincAlinamadi"><span
+                                            class="ml-0"></span>
+                                        {{regiForm.get('BasincAlinamadi').value === true ? 'Evet' : 'Hayır'}}
+                                    </label>
+                                </div>
+                                <div class="valid-feedback-form"
+                                    *ngIf="!regiForm.get('BasincAlinamadi').valid && regiForm.get('BasincAlinamadi').touched">
+                                    Lütfen bu
+                                    alanı doldurun.</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="col-md-12 mb-3">
+                                <label class="active">Araç Plaka</label>
+                                <input class="form-control" type="text" disabled value="PLAKA">
+                            </div>
+
+                            <div class="col-md-12 mb-3">
+                                <label class="active">Araç Marka / Model</label>
+                                <input class="form-control" type="text" disabled value="MARKA / MODEL">
+                            </div>
+
+                            <div class="col-md-12 mb-3">
+                                <label class="active">Lastik Pozisyonu</label>
+                                <input class="form-control" type="text" disabled value="POZİSYON">
+                            </div>
+
+                            <div class="col-md-12 mb-3">
+                                <label class="active">Önceki Servis Tarihi</label>
+                                <input class="form-control" type="text" disabled value="TARİH">
+                            </div>
+
+                            <div class="col-md-12 mb-3">
+                                <label class="active">Önceki Araç Kilometre</label>
+                                <input class="form-control" type="text" disabled value="KİLOMETRE">
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom02" class="active">Lastik Konum</label>
+                                <br />
+                                <ng-select2 [data]="lastikKonumlar" [value]="varsayilanLastikKonum" [disabled]="true"
+                                    formControlName="LastikKonumID"
+                                    [placeholder]="'Lütfen bir lastik konumu seçiniz..'">
+                                </ng-select2>
+                                <div class="valid-feedback-form"
+                                    *ngIf="!regiForm.get('LastikKonumID').valid && regiForm.get('LastikKonumID').touched">
+                                    Lütfen bu
+                                    alanı doldurun.</div>
+                            </div>
+
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-4" *ngFor="let item of gozlemleArray; let i = index;">
+                                            <label class="checkbox checkbox-primary" for="{{item.KisaAd}}">
+                                                <input type="checkbox" class="gozlemleCheckboxClass"
+                                                    id="{{item.KisaAd}}" />
+                                                <span>{{item.Ad}}</span>
+                                            </label>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </div>
+
+                    </div>
+                    <button class="btn pull-right btn-primary" [disabled]="!regiForm.valid"
+                        type="submit">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

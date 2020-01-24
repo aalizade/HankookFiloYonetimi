@@ -1,0 +1,37 @@
+<ngx-smart-modal #lastikIslemleri identifier="lastikIslemleri" [dismissable]="false">
+  <div class="info">
+    <div class="top_btn">
+      <div class="cancel" (click)="lastikIslemleri.close()">
+        <img src="assets/aks-iskeletleri/lastik-dialog/img/back.png" title="Kapat">
+      </div>
+      <h3>Lastik İşlemleri</h3>
+      <div class="iconGnl">
+        <div class="olcum_btn">
+          <img src="assets/aks-iskeletleri/lastik-dialog/img/olcm.png" (click)="olcumleOpen()" title="Ölçümle">
+        </div>
+
+        <!-- <div class="gozlem_btn">
+        <img src="assets/aks-iskeletleri/lastik-dialog/img/eyes.png" (click)="gozlemleOpen()" title="Gözlemle">
+      </div> -->
+        <div class="kopya_btn">
+          <img src="assets/aks-iskeletleri/lastik-dialog/img/copy.png" (click)="kopyalaOpen()" title="Kopyala">
+        </div>
+
+        <div class="lastik_bilgi">
+          <img src="assets/aks-iskeletleri/lastik-dialog/img/tire_info.png" (click)="lastikBilgisiOpen()"
+            title="Lastik Bilgisi">
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="clear"></div>
+</ngx-smart-modal>
+
+<div #OlcumleContainer></div>
+
+<div #GozlemleContainer></div>
+
+<div #KopyalaContainer></div>
+
+<div #LastikBilgisiContainer></div>

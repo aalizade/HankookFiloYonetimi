@@ -1,0 +1,346 @@
+.info {
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+    /*   margin-left: -24px; */
+    height: 500px;
+}
+
+.clear {
+    clear: both;
+}
+
+.top_btn {
+    position: relative;
+    margin: 10px auto;
+    width: 326px;
+    bottom: 10px;
+    height: 70px;
+}
+
+.top_btn h3 {
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.onay {
+    margin: 0px auto;
+    width: 332px;
+    height: 50px;
+}
+
+.kopya_btn {
+    width: 65px;
+    float: left;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 0px 0px 0px 10px;
+    z-index: 9999;
+}
+
+.kopya_btn img {
+    width: 40px;
+    height: auto;
+    margin-left: 20px;
+    margin-top: 4px;
+}
+
+.dis_drnlk {
+    width: 100px;
+    float: left;
+    border-radius: 15px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.dis_drnlk p {
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #000;
+}
+
+.basinc {
+    width: 65px;
+    float: left;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 0px 0px 0px 2px;
+    z-index: 9999;
+}
+
+.basinc p {
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #000;
+}
+
+.tavsiye_basinc {
+    width: 125px;
+    float: left;
+    border-radius: 15px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.tavsiye_basinc p {
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #000;
+}
+
+.basinc_alinamadi {
+    width: 300px;
+    float: left;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 0px 0px 0px 2px;
+    z-index: 9999;
+}
+
+.basinc_alinamadi p {
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #000;
+    float: left;
+}
+
+.evet_yan p {
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #000;
+    float: left;
+    margin: -20px 0px 0px 65px;
+}
+
+.lastik_bilgi {
+    width: 65px;
+    float: left;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 0px 0px 0px 21px;
+    z-index: 9999;
+}
+
+.lastik_bilgi img {
+    width: 40px;
+    height: auto;
+    margin-left: 10px;
+    margin-top: 4px;
+}
+
+.gozlem_btn {
+    margin: 0px 0px 0px 10px;
+    width: 65px;
+    float: left;
+    border-radius: 15px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.gozlem_btn img {
+    width: 40px;
+    height: auto;
+    margin-left: 20px;
+    margin-top: 4px;
+}
+
+.cancel {
+    width: 65px;
+    float: left;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 0px auto;
+    z-index: 9999;
+}
+
+.cancel img {
+    width: 25px;
+    height: auto;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
+.arti {
+    width: 26px;
+    float: left;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 0px auto;
+    z-index: 9999;
+}
+
+.arti img {
+    width: 25px;
+    height: auto;
+    margin-top: 10px;
+}
+
+.dis_gnl {
+    width: 326px;
+    margin: -15px auto;
+}
+
+.dis_gnl p {
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #000;
+    margin-top: -10px;
+}
+
+.dis_gnl ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.dis_gnl ul li {
+    display: inline-block;
+}
+
+.basinc_gnl {
+    width: 142px;
+}
+
+.basinc_gnl p {
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #000;
+    float: left;
+    margin-left: 8px;
+    margin-top: 0px;
+}
+
+.basinc_gnl ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.basinc_gnl ul li {
+    display: inline-block;
+}
+
+.tavsiye_gnl {
+    width: 127px;
+}
+
+.tavsiye_gnl ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.tavsiye_gnl ul li {
+    display: inline-block;
+}
+
+input[type=text], #dis select {
+    width: 50px;
+    padding: 12px 10px;
+    float: left;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: -10px;
+}
+
+.tavsiye_gnl input[type=text], #dis select {
+    width: 100px;
+    padding: 12px 10px;
+    float: left;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.tavsiye {
+    float: right;
+}
+
+.basinc_ust {
+    float: left;
+}
+
+.basinc_no {
+    float: left;
+}
+
+/* Swich checbox */
+
+input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 50px;
+    height: 25px;
+    margin-top: 40px;
+    background: grey;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+}
+
+label:after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 22px;
+    height: 23px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+input:checked+label {
+    background: #646bc8;
+}
+
+input:checked+label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+label:active:after {
+    width: 40px;
+}
+
+/* Kapanış */
+
+.ok {
+    width: 65px;
+    float: left;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 40px auto;
+    z-index: 9999;
+    padding: 5px;
+}
+
+.ok img {
+    height: auto;
+    margin-top: 5px;
+}
+
+.close {
+    width: 65px;
+    float: left;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 40px auto;
+    z-index: 9999;
+    padding: 5px;
+}
+
+.close img {
+    width: 50px;
+    height: auto;
+    margin-top: 5px;
+}  
+.ortak{
+display: inline-block;
+    width: 326px;
+}

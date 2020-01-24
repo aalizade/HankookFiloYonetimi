@@ -1,0 +1,45 @@
+<div class="login-page">
+    <div class="auth-welcome-box text-white pl-lg-5 d-none d-lg-flex">
+        <div><a class="btn btn-link home-link text-white-50 pl-lg-5" href="index.html"></a></div>
+        <div class="pl-lg-5">
+            <h4 class="font-40 mb-4">Yönetim Paneli</h4>
+            <p class="mb-0">Bu sayfa, girilen doğru bilgiler ışığında sizi yönetim paneline ulaştıracak.</p>
+        </div>
+        <!-- <div class="pl-lg-5 font-13"><span class="text-white-50">2019 © HANKOOK</span></div> -->
+    </div>
+    <div class="login-content">
+        <div class="card">
+            <div class="card-body bg-white p-5">
+
+                <div class="mb-1 text-primary text-center"><img class="mb-4 text-primary text-center"
+                    src="assets/template/assets/img/logo/logo.png"></div>
+
+            <h3 class="mb-4 text-primary text-center" style="color:#000 !important;" >HANKOOK FİLO YÖNETİM <br> YAZILIMI</h3>
+            <form id="login-form" action="javascript:;">
+                <div class="mb-4"><div class="md-form mb-0"><input class="md-form-control" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" type="email"><label>Kullanıcı Adı </label></div>
+                </div>
+                <div class="mb-4">
+                
+                    <div class="md-form mb-0" id="show_hide_password">
+                        <input class="md-form-control" type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+                        <a><i class="fa fa-eye-slash pull-right   "
+                            aria-hidden="true"
+                            style="color:#333; cursor: pointer; float: right; position: relative; margin-top:-40px;  background-color: transparent; border: none;"></i></a>
+                        <label>Şifre</label>
+                                </div>
+                            
+                            
+                </div>
+                <div class="flexbox mb-5 float-right"><button (click)="login()"
+                        class="btn btn-primary" style="min-width: 100px;  background-color: #ec6708;
+                        border-color: #ec6708;" >GİRİŞ</button></div>
+            </form>
+
+            </div>
+        </div>
+    </div>
+</div><!-- BEGIN: Page backdrops-->
+<div class="sidenav-backdrop backdrop"></div>
+<div class="preloader-backdrop">
+    <div class="page-preloader">Loading</div>
+</div><!-- END: Page backdrops-->

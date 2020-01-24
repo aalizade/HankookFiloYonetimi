@@ -1,0 +1,192 @@
+<ngx-smart-modal #olcumle identifier="olcumle" [dismissable]="false">
+    <div class="info">
+        <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">
+            <div class="top_btn">
+                <h3>Ölçüm İşlemleri</h3>
+                <div class="dis_drnlk">
+                    <p>Diş Derinliği: <b>( Orj.Diş D. = {{orjinalDisDerinligi}} )</b></p>
+                </div>
+                <div class="clear"></div>
+                <div class="dis_gnl">
+                    <ul>
+                        <li *ngFor="let item of disDerinligiSayiArray; let i = index;"
+                            [style.margin-left]="i===0 ? '' : '5px'">
+                            <p class="active">{{i + 1}}.</p>
+                            <input type="number" id="disDerinligi_{{i+1}}" value="">
+                        </li>
+                    </ul>
+                </div>
+                <div class="ortak">
+                    <div class="basinc_ust">
+                        <div class="basinc">
+                            <p>Son Diş D.:</p>
+                        </div>
+
+                        <div class="basinc_gnl">
+                            <ul>
+                                <li>
+                                    <input type="number" id="sonDisDerinligi" [value]="sonDisDerinligiOrtalamasi" placeholder=""
+                                        disabled="disabled">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="olcum_alinamadi">
+                        <p>Ölçüm Alınamadı:</p>
+                        <div class="olcum_evet_yan">
+                            <input type="checkbox" id="olcumAlinamadi" formControlName="OlcumAlinamadi" /><label
+                                for="olcumAlinamadi"></label>
+                            <p>{{regiForm.get('OlcumAlinamadi').value === true ? 'Evet' : 'Hayır'}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ortak">
+                    <div class="basinc_ust">
+                        <div class="basinc">
+                            <p [style.color]="(!regiForm.get('Basinc').valid) ? 'red' : '#000'">Basınç:</p>
+                        </div>
+
+                        <div class="basinc_gnl">
+                            <ul>
+                                <li>
+                                    <input type="number" [attr.disabled]="basincDisable===true?true:null" formControlName="Basinc"
+                                        placeholder="">
+                                    <p>{{psiBar}}</p>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tavsiye">
+                        <div class="tavsiye_basinc">
+                            <p>Tavsiye Basınç:</p>
+                        </div>
+                        <div class="tavsiye_gnl">
+                            <ul>
+                                <li>
+                                    <input type="number" formControlName="TavsiyeBasinc" placeholder="">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+                <div class="basinc_no">
+                    <div class="basinc_alinamadi">
+                        <p>Basınç Alınamadı:</p>
+                        <div class="evet_yan">
+                            <input type="checkbox" formControlName="BasincAlinamadi" id="switch" /><label
+                                for="switch"></label>
+                            <p>{{regiForm.get('BasincAlinamadi').value === true ? 'Evet' : 'Hayır'}}</p>
+                        </div>
+                    </div>
+                    <div class="lastik">
+                        <div class="lastik_km">
+                            <p>Lastik KM:</p>
+                        </div>
+                        <div class="lastik_gnl">
+                            <ul>
+                                <li>
+                                    <input class="textInputMini" type="text" formControlName="LastikKilometre"
+                                        placeholder="">
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="gozlem_yap" (click)="gozlemYap()" *ngIf="gozlemYapActive">
+                        <img src="assets/aks-iskeletleri/lastik-dialog/olcumle/img/eyes.png">
+                        <p>Gözlemler</p>
+                    </div>
+                </div>
+
+
+                <div class="ok" *ngIf="!gozlemYapActive">
+                    <input type="image" [disabled]="!regiForm.valid"
+                        src="assets/aks-iskeletleri/lastik-dialog/olcumle/img/okk.png">
+                </div>
+                <div class="close" (click)="olcumle.close()">
+                    <img src="assets/aks-iskeletleri/lastik-dialog/olcumle/img/cancel.png">
+                </div>
+
+            </div>
+        </form>
+    </div>
+</ngx-smart-modal>
+
+<ngx-smart-modal #olcumleFirstScreen identifier="olcumleFirstScreen" [dismissable]="false">
+    <div class="info" style="height: auto">
+        <form [formGroup]="olcumleFirstScreenForm" (ngSubmit)="olcumleOpen(olcumleFirstScreenForm.value)">
+            <div class="top_btn_giris">
+                <h3 *ngIf="!olcumIslemleriAcik">Yükleniyor..</h3>
+                <div *ngIf="olcumIslemleriAcik">
+                    <h3>Araç Kayıt</h3>
+                    <div class="son_servis_date">
+                        <p>Son İşlem Tarihi:</p>
+                        <div class="clear"></div>
+                        <div class="son_servis_gnl">
+                            <ul>
+                                <li>
+                                    <input type="text" [value]="sonServisTarihi | date:'dd.MM.yyyy'"
+                                        class="textInputSonServis" disabled="disabled">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="son_arac_ust" style="display: none">
+                        <div class="son_arac_km">
+                            <p>Son Araç KM:</p>
+                        </div>
+                        <div class="son_arac_gnl">
+                            <ul>
+                                <li>
+                                    <input class="textInput"
+                                        disabled="disabled" placeholder="">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="servis_date">
+                        <p>Servis Tarihi :</p>
+                        <div class="clear"></div>
+                        <div class="servis_gnl">
+                            <ul>
+                                <li>
+                                    <input type="date" style="width: 122px" formControlName="ServisTarihi">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="arac_ust" style="display: none">
+                        <div class="arac_km">
+                            <p>
+                                Araç KM:</p>
+                        </div>
+                        <div class="arac_gnl">
+                            <ul>
+                                <li>
+                                    <input class="textInput" type="text">
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="bottom_btn">
+
+                        <div class="ok">
+                            <input type="image" [disabled]="!olcumleFirstScreenForm.valid"
+                                src="assets/aks-iskeletleri/lastik-dialog/olcumle/img/okk.png">
+                        </div>
+                        <div class="close" (click)="olcumleFirstScreen.close()">
+                            <img src="assets/aks-iskeletleri/lastik-dialog/olcumle/img/cancel.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</ngx-smart-modal>
+
+<div #GozlemleContainer_Olcumle></div>

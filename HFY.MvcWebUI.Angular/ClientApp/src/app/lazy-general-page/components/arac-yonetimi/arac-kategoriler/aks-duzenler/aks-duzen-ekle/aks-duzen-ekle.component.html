@@ -1,0 +1,26 @@
+<div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+      
+              <h5 class="box-title text-primary">Aks Düzen Ekle [{{aracKategori}}]</h5>
+              <form class="example-form" [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">
+                <div class="form-row">
+      
+                  <div class="col-md-6 mb-3">
+                    <label for="validationCustom02" class="active">Aks Pozisyon</label>
+                    <br/>
+                    <ng-select2 [data]="aksPozisyonlar" formControlName="AksPozisyonID" [placeholder]="'Lütfen bir aks pozisyonu seçiniz..'">
+                    </ng-select2>
+                    <div class="valid-feedback-form" *ngIf="!regiForm.get('AksPozisyonID').valid && regiForm.get('AksPozisyonID').touched">
+                      Lütfen bu
+                      alanı doldurun.</div>
+                  </div>
+                 
+                </div>
+                <button class="btn pull-right btn-primary" [disabled]="!regiForm.valid" type="submit">Kaydet</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>

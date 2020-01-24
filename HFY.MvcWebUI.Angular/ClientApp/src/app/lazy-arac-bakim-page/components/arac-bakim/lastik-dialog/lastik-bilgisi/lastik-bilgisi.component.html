@@ -1,0 +1,85 @@
+<ngx-smart-modal #lastikBilgisi identifier="lastikBilgisi" [dismissable]="false">
+  <div class="info">
+    <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">
+      <div class="top_btn">
+        <h3>Lastik Bilgisi </h3>
+        <div class="lastik_bilgi_gnl" style="height:285px">
+          <ul>
+            <li>
+              <p>Seri No: </p><strong>
+                <p>{{seriNo}} </p>
+              </strong>
+            </li>
+            <li>
+              <p>Marka: </p><strong>
+                <p>
+                  <ng-select2 [data]="lastikMarkalar" formControlName="LastikMarkaID" [placeholder]="'Marka'" [disabled]="olcumVarKilitle"
+                    [width]="ngSelect2Width" (valueChanged)="getDesen($event)">
+                  </ng-select2>
+                </p>
+                <!-- <p>{{lastikMarka}} </p> -->
+              </strong>
+            </li>
+            <li>
+              <p>Desen: </p><strong>
+                <p>
+                  <ng-select2 [data]="lastikMarkaDesenler" formControlName="LastikMarkaDesenID" [width]="ngSelect2Width" [disabled]="olcumVarKilitle" (valueChanged)="getLastikMarkaDesenOzellik_DisDerinligi()"
+                    [placeholder]="'Desen'">
+                  </ng-select2>
+                </p>
+                <!-- <p>{{lastikMarkaDesen}} </p> -->
+              </strong>
+            </li>
+            <li>
+              <p>Ebat: </p><strong>
+                <p>
+                  <ng-select2 [data]="ebatlar" formControlName="EbatID" [width]="ngSelect2Width" [placeholder]="'Ebat'" [disabled]="olcumVarKilitle" (valueChanged)="getLastikMarkaDesenOzellik_DisDerinligi()">
+                  </ng-select2>
+                </p>
+                <!-- <p>{{ebat}} </p> -->
+              </strong>
+            </li>
+            <li>
+              <p>Diş Sev.: </p><strong>
+                <p>
+                  <input style="padding: 4px" [style.width]="disSeviyesiInputWidth" type="number" placeholder="Diş Seviyesi" 
+                  [attr.disabled]="disSeviyesiKilitle===true?true:null" 
+                  [formControl]="regiForm.get('DisSeviyesi')">
+                </p>
+                <!-- <p>{{ebat}} </p> -->
+              </strong>
+            </li>
+          </ul>
+        </div>
+        <div class="lastik_bilgi_gnl">
+          <ul>
+            <li>
+              <p>Lastik Km: </p><strong>
+                <p>{{lastikBilgi.LastikKilometre | mask:'dot_separator'}} </p>
+              </strong>
+            </li>
+            <li>
+              <p>Montaj: </p><strong>
+                <p>{{aracaTakilmaTarihi}} </p>
+              </strong>
+            </li>
+            <li>
+              <p>Son Servis: </p><strong>
+                <p>{{sonServisTarihi | date:'dd.MM.yyyy'}} </p>
+              </strong>
+            </li>
+          </ul>
+        </div>
+        <div class="ok">
+          <input type="image" [disabled]="!regiForm.valid"
+            src="assets/aks-iskeletleri/lastik-dialog/lastik-bilgisi/img/okk.png">
+        </div>
+        <div class="close" (click)="lastikBilgisi.close()">
+          <img src="assets/aks-iskeletleri/lastik-dialog/lastik-bilgisi/img/cancel.png">
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+</ngx-smart-modal>

@@ -1,0 +1,154 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+
+                <h5 class="box-title text-primary">Lastik Kartı Ekle</h5>
+                <form class="example-form" [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">
+                    <div class="form-row">
+
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02" class="active">Depo Kayıt Tarihi</label>
+                            <br />
+                            <input class="form-control" type="date" formControlName="KayitTarihi">
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('KayitTarihi').valid && regiForm.get('KayitTarihi').touched">
+                                Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02" class="active">Firma</label>
+                            <br />
+                            <ng-select2 [data]="firmalar" formControlName="FirmaID" [disabled]="(firmaId!==0&&firmaId!==undefined)?true:false"
+                                [placeholder]="'Lütfen bir firma seçiniz..'">
+                            </ng-select2>
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('FirmaID').valid && regiForm.get('FirmaID').touched">
+                                Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02" class="active">Marka</label>
+                            <br />
+                            <ng-select2 [data]="lastikMarkalar" formControlName="LastikMarkaID"
+                                [placeholder]="'Lütfen bir lastik markası seçiniz..'" (valueChanged)="getDesen($event)">
+                            </ng-select2>
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('LastikMarkaID').valid && regiForm.get('LastikMarkaID').touched">
+                                Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02" class="active">Desen</label>
+                            <br />
+                            <ng-select2 [data]="lastikMarkaDesenler" formControlName="LastikMarkaDesenID" (valueChanged)="getLastikMarkaDesenOzellik_DisDerinligi()"
+                                [placeholder]="'Lütfen bir lastik marka deseni seçiniz..'">
+                            </ng-select2>
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('LastikMarkaDesenID').valid && regiForm.get('LastikMarkaDesenID').touched">
+                                Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3"><label for="validationCustom02" class="active">Seri No</label>
+                            <input class="form-control" type="text" placeholder="Seri No" formControlName="SeriNo">
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('SeriNo').valid && regiForm.get('SeriNo').touched">
+                                Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3"><label for="validationCustom02" class="active">Fiyat</label>
+                            <input class="form-control" type="number" placeholder="Fiyat" formControlName="Fiyat">
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('Fiyat').valid && regiForm.get('Fiyat').touched">
+                                Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02" class="active">Ebat</label>
+                            <br />
+                            <ng-select2 [data]="ebatlar" formControlName="EbatID" (valueChanged)="getLastikMarkaDesenOzellik_DisDerinligi()"
+                                [placeholder]="'Lütfen bir ebat seçiniz..'">
+                            </ng-select2>
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('EbatID').valid && regiForm.get('EbatID').touched">
+                                Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02" class="active">Lastik Türü</label>
+                            <br />
+                            <ng-select2 [data]="lastikTurler" [value]="varsayilanLastikTur"
+                                formControlName="LastikTurID" [placeholder]="'Lütfen bir lastik türü seçiniz..'">
+                            </ng-select2>
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('LastikTurID').valid && regiForm.get('LastikTurID').touched">
+                                Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02" class="active">Lastik Tipi</label>
+                            <br />
+                            <ng-select2 [data]="lastikTipler" formControlName="LastikTipID" (valueChanged)="lastikKilometreAcKapat($event)"
+                                [placeholder]="'Lütfen bir lastik tipi seçiniz..'">
+                            </ng-select2>
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('LastikTipID').valid && regiForm.get('LastikTipID').touched">
+                                Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3"><label for="validationCustom02" class="active">Diş Seviyesi</label>
+                            <input class="form-control" placeholder="Diş Seviyesi" type="number"
+                                [formControl]="regiForm.get('DisSeviyesi')">
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('DisSeviyesi').valid && regiForm.get('DisSeviyesi').touched">
+                                Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3"><label for="validationCustom02" class="active">Lastik
+                                Kilometre</label>
+                            <input class="form-control" type="text" mask="dot_separator" [attr.disabled]="lastikKilometreKapali?'disabled':null" [validation]="false"
+                                placeholder="Lastik Kilometre" [formControl]="regiForm.get('LastikKilometre')">
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('LastikKilometre').valid && regiForm.get('LastikKilometre').touched">
+                                Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02" class="active">Lastik Konum</label>
+                            <br />
+                            <ng-select2 [data]="lastikKonumlar" formControlName="LastikKonumID" [value]="lastikKonumId" [disabled]="(firmaId!==0&&firmaId!==undefined)?true:false"
+                                [placeholder]="'Lütfen bir lastik konumu seçiniz..'">
+                            </ng-select2>
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('LastikKonumID').valid && regiForm.get('LastikKonumID').touched">
+                                Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-1 mb-1">
+                            <button class="btn pull-left btn-primary" [disabled]="!regiForm.valid"
+                                type="submit">Kaydet</button>
+                            <div *ngIf="anaSayfayaDonBtn" style="float:right">
+                                <img src="assets/aks-iskeletleri/4x2/img/home.png" style="width:42px"
+                                    (click)="goToHomePage()" title="Anasayfa">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

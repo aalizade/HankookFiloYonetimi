@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+
+                <h5 class="box-title text-primary">Araç Güncelle</h5>
+                <form class="example-form" [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">
+                    <div class="form-row">
+
+                        <div class="col-md-6 mb-3"><label class="active">Plaka</label>
+                            <input class="form-control" type="text" placeholder="Plaka" id="plakaPattern"
+                                autocomplete="off" [formControl]="regiForm.get('Plaka')">
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('Plaka').valid && regiForm.get('Plaka').touched">Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02" class="active">Firma</label>
+                            <br />
+                            <ng-select2 [data]="firmalar" [value]="mevcutFirma" formControlName="FirmaID" (valueChanged)="getPsiBar($event)"
+                                [placeholder]="'Lütfen bir firma seçiniz..'">
+                            </ng-select2>
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('FirmaID').valid && regiForm.get('FirmaID').touched">
+                                Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02" class="active">Marka</label>
+                            <br />
+                            <ng-select2 [data]="aracMarkalar" [value]="mevcutMarka" (valueChanged)="getModel($event)" [disabled]="markaModelKilitle"
+                                formControlName="MarkaID" [placeholder]="'Lütfen bir marka seçiniz..'">
+                            </ng-select2>
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('MarkaID').valid && regiForm.get('MarkaID').touched">
+                                Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02" class="active">Model</label>
+                            <br />
+                            <ng-select2 [data]="aracModeller" [value]="mevcutModel"
+                                (valueChanged)="getAracKategoriAksSayisi($event)" formControlName="ModelID" [disabled]="markaModelKilitle"
+                                [placeholder]="'Lütfen bir model seçiniz..'">
+                            </ng-select2>
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('ModelID').valid && regiForm.get('ModelID').touched">
+                                Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+
+                        <div class="col-md-3 mb-3"
+                            *ngFor="let item of [].constructor(aracKategoriAksSayisi); let i = index">
+                            <label class="active">{{i+1}}. Aks</label>
+                            <input class="form-control aracKategoriAkslar" type="number" formControlName="Aks{{i+1}}" [attr.data-id]="i+1" max="100"
+                                value="0" id="aks_{{i+1}}" autocomplete="off" placeholder="{{i+1}}. Aks">
+                            <label>{{psiBar}}</label>
+                        </div>
+
+                        <div class="col-md-6 mb-3"><label for="validationCustom02" class="active">Aktiflik</label>
+                            <div class="form-group my-1">
+                                <label class="ui-switch switch-icon">
+                                    <input type="checkbox" formControlName="ListeAktiflik"><span class="ml-0"></span>
+                                    {{regiForm.get('ListeAktiflik').value === true ? 'Aktif' : 'Pasif'}}
+                                </label>
+                            </div>
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('ListeAktiflik').valid && regiForm.get('ListeAktiflik').touched">
+                                Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+                    </div>
+                    <button class="btn pull-right btn-primary" [disabled]="!regiForm.valid"
+                        type="submit">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

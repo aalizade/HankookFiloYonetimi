@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+
+                <h5 class="box-title text-primary">Hava Fark Tanım Güncelle</h5>
+                <form class="example-form" [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3"><label class="active">Tanım</label>
+                            <input class="form-control" type="text" placeholder="Tanım" formControlName="Tanim">
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('Tanim').valid && regiForm.get('Tanim').touched">Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+                        <div class="col-md-6 mb-3"><label class="active">Minimum (%)</label>
+                            <input class="form-control" type="number" placeholder="0"
+                                formControlName="HavaFarkMinimumYuzde">
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('HavaFarkMinimumYuzde').valid && regiForm.get('HavaFarkMinimumYuzde').touched">
+                                Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+                        <div class="col-md-6 mb-3"><label class="active">Maksimum (%)</label>
+                            <input class="form-control" type="number" placeholder="0"
+                                formControlName="HavaFarkMaksimumYuzde">
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('HavaFarkMaksimumYuzde').valid && regiForm.get('HavaFarkMaksimumYuzde').touched">
+                                Lütfen bu
+                                alanı doldurun. </div>
+                        </div>
+                        <div class="col-md-6 mb-3"><label class="active">Kayıp</label>
+                            <input class="form-control" type="number" placeholder="0" formControlName="Kayip">
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('Kayip').valid && regiForm.get('Kayip').touched">Lütfen bu
+                                alanı doldurun. </div>
+                        </div>
+                        <div class="col-md-6 mb-3"><label for="validationCustom02" class="active">Aktiflik</label>
+                            <div class="form-group my-1">
+                                <label class="ui-switch switch-icon">
+                                    <input type="checkbox" formControlName="ListeAktiflik"><span class="ml-0"></span>
+                                    {{regiForm.get('ListeAktiflik').value === true ? 'Aktif' : 'Pasif'}}
+                                </label>
+                            </div>
+                            <div class="valid-feedback-form"
+                                *ngIf="!regiForm.get('ListeAktiflik').valid && regiForm.get('ListeAktiflik').touched">
+                                Lütfen bu
+                                alanı doldurun.</div>
+                        </div>
+                    </div>
+                    <button class="btn pull-right btn-primary" [disabled]="!regiForm.valid"
+                        type="submit">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

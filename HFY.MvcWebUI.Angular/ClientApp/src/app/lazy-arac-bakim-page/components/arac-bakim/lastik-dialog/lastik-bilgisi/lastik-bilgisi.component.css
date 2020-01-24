@@ -1,0 +1,113 @@
+
+.info {
+    font-family: "Open sans", "Segoe UI", "Segoe WP", Helvetica, Arial, sans-serif;
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+    height: 200px;
+  }
+  
+  .clear {
+    clear: both;
+  }
+  
+  .top_btn {
+    position: relative;
+    margin: 10px auto;
+    width: 326px;
+    bottom: 10px;
+    height: 70px;
+  }
+  
+  .top_btn h3 {
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  /* Kapanış */
+  
+  .ok {
+    width: 65px;
+    float: left;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 10px auto;
+    z-index: 9999;
+    padding: 5px;
+  }
+  
+  .ok input {
+    height: auto;
+    margin-top: 5px;
+  }
+  
+  .close {
+    width: 65px;
+    float: left;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 10px auto;
+    z-index: 9999;
+    padding: 5px;
+  }
+  
+  .close img {
+    width: 50px;
+    height: auto;
+    margin-top: 7px;
+  }
+  
+  .lastik_bilgi_gnl {
+    height:175px;
+    width: 326px;
+    margin-bottom: 10px;
+    background-color: rgb(232, 232, 232);
+  }
+
+  @media only screen and (max-width:420px) {
+    .lastik_bilgi_gnl {
+      width: 290px !important;
+    }
+    .lastik_bilgi_gnl ul li p {
+      width: 115px !important;
+    }
+    .lastik_bilgi_gnl ul li strong p {
+      margin-left:5px;
+      font-size: 20px;
+      float: left;
+      height: 10px;
+      width: 115px;
+    }
+  }
+  
+  .lastik_bilgi_gnl ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .lastik_bilgi_gnl ul li {
+    width: 100%;
+    display: inline-block;
+  }
+  
+  .lastik_bilgi_gnl ul li p {
+    margin-left:5px;
+    font-size: 20px;
+    float: left;
+    height: 10px;
+    width: 100px;
+  }
+  .lastik_bilgi_gnl ul li strong p {
+    margin-left:5px;
+    font-size: 20px;
+    float: left;
+    height: 10px;
+    width: 180px;
+  }
+  
+  .lastik_bilgi_gnl ul li strong {
+    font-size: 20px;
+    float: left;
+    margin-left: 10px;
+  }

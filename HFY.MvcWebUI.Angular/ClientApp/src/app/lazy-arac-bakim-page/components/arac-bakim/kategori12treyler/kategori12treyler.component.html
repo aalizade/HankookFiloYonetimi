@@ -1,0 +1,323 @@
+<div class="info">
+    <div class="top_btn">
+
+        <div class="home_btn">
+            <img src="assets/aks-iskeletleri/12li_treyler/img/home.png" (click)="goToHomePage()" title="Anasayfa">
+            <!-- <p>Servis Ver</p> -->
+        </div>
+
+        <div class="arac_bilgileri" (click)="aracBilgiGetir()">
+
+            <img src="assets/aks-iskeletleri/12li_treyler/img/arac_bilgi.png" title="Araç Bilgileri">
+            <!-- <p>Araç Bilgileri</p> -->
+
+        </div>
+
+        <div class="servis_ver">
+            <img src="assets/aks-iskeletleri/12li_treyler/img/service.png" title="Servis Ver">
+            <!-- <p>Servis Ver</p> -->
+        </div>
+
+        <div class="kaydet_btn">
+            <img src="assets/aks-iskeletleri/12li_treyler/img/save.png" (click)="aracBakimIslemleriKaydet()"
+                title="Kaydet">
+            <!-- <p>Servis Ver</p> -->
+        </div>
+
+        <div class="depo" *ngIf="!depo_hide">
+            <img src="assets/aks-iskeletleri/12li_treyler/img/depo_icon.png">
+            <!-- <p>Depo</p> -->
+        </div>
+        <div cdkDropList #depo="cdkDropList" [cdkDropListData]="depoList" [cdkDropListAutoScrollDisabled]="false"
+            [cdkDropListSortingDisabled]="true" id="cdk-drag-drop-depo" style="display: inline;"
+            [cdkDropListConnectedTo]="[aks_111_A_SLD,aks_11_A_SGD,aks_112_A_SLI,aks_12_A_SGI,aks_29_A_SLD,aks_23_A_SGD,aks_210_A_SLI,aks_24_A_SGI,aks_37_A_SLD,aks_35_A_SGD,aks_38_A_SLI,aks_36_A_SGI]"
+            (cdkDropListDropped)="onDrop($event)" (cdkDropListExited)="exited($event)">
+            <div class="depo" tip="depo" cdkDrag>
+                <img src="assets/aks-iskeletleri/12li_treyler/img/depo_icon.png">
+                <!-- <p>Depo</p> -->
+                <img *cdkDragPreview src="assets/aks-iskeletleri/12li_treyler/img/tire.png">
+            </div>
+        </div>
+
+        <div cdkDropList #hurdalik="cdkDropList" [cdkDropListData]="hurdalikList"
+            [cdkDropListAutoScrollDisabled]="false" [cdkDropListSortingDisabled]="true" [cdkDropListDisabled]="true"
+            id="cdk-drag-drop-hurdalik" style="display: initial;"
+            [cdkDropListConnectedTo]="[aks_111_A_SLD,aks_11_A_SGD,aks_112_A_SLI,aks_12_A_SGI,aks_29_A_SLD,aks_23_A_SGD,aks_210_A_SLI,aks_24_A_SGI,aks_37_A_SLD,aks_35_A_SGD,aks_38_A_SLI,aks_36_A_SGI]"
+            (cdkDropListDropped)="onDrop($event)">
+            <div class="hurdalik" tip="hurdalik">
+                <img src="assets/aks-iskeletleri/12li_treyler/img/hurda_icon.png">
+                <!-- <p>Hurdalık</p> -->
+            </div>
+        </div>
+
+    </div>
+
+    <div class="hizalama">
+
+        <div class="arac_aks">
+
+            <div class="on_birlesme">
+                <!-- Treyler'da direksiyonu gizle -->
+                <!-- <div class="on_cam">
+                    <img src="assets/aks-iskeletleri/12li_treyler/img/direksiyon.png">
+                </div> -->
+
+                <div class="orta_aks">
+                    <img src="assets/aks-iskeletleri/12li_treyler/img/aks_body3.png">
+                </div>
+
+
+            </div>
+
+            <div class="on_birlesme2">
+
+                <div cdkDropList #aks_111_A_SLD="cdkDropList" [cdkDropListAutoScrollDisabled]="false"
+                    [cdkDropListSortingDisabled]="true" [cdkDropListData]="aks111ASLD"
+                    [cdkDropListConnectedTo]="[aks_11_A_SGD,aks_112_A_SLI,aks_12_A_SGI,aks_29_A_SLD,aks_23_A_SGD,aks_210_A_SLI,aks_24_A_SGI,aks_37_A_SLD,aks_35_A_SGD,aks_38_A_SLI,aks_36_A_SGI,depo,hurdalik]"
+                    (cdkDropListDropped)="onDrop($event)" class="arka_sol2" tire-aks-name="111-A-SLD" [attr.tire_aks_number]="'1'"
+                    [attr.tire_aks_id]="aks111ASLDId">
+                    <div cdkDrag *ngFor="let item of aks111ASLD" (click)="doubleClick(item.LastikID,1,aks111ASLDId)" tip="lastik" [attr.tire_aks_id]="aks111ASLDId">
+                        <div class="seri_no">
+                            <p>{{item.SeriNo}}</p>
+                        </div>
+                        <img [src]="lastikTipResim(item.LastikTipID)">
+                        <div *cdkDragPlaceholder style="display: none"></div>
+                    </div>
+                    <div *ngIf="aks111ASLD.length===0" (click)="bosLastikDoubleClick('aks111ASLD',aks111ASLDId,1)">
+                        <img src="assets/aks-iskeletleri/12li_treyler/img/tire_soft.png">
+                    </div>
+                </div>
+
+                <div cdkDropList #aks_11_A_SGD="cdkDropList" [cdkDropListAutoScrollDisabled]="false"
+                    [cdkDropListSortingDisabled]="true" [cdkDropListData]="aks11ASGD"
+                    [cdkDropListConnectedTo]="[aks_111_A_SLD,aks_112_A_SLI,aks_12_A_SGI,aks_29_A_SLD,aks_23_A_SGD,aks_210_A_SLI,aks_24_A_SGI,aks_37_A_SLD,aks_35_A_SGD,aks_38_A_SLI,aks_36_A_SGI,depo,hurdalik]"
+                    (cdkDropListDropped)="onDrop($event)" class="arka_sag2" tire-aks-name="11-A-SGD" [attr.tire_aks_number]="'1'"
+                    [attr.tire_aks_id]="aks11ASGDId">
+                    <div cdkDrag *ngFor="let item of aks11ASGD" (click)="doubleClick(item.LastikID,1,aks11ASGDId)" tip="lastik" [attr.tire_aks_id]="aks11ASGDId">
+                        <div class="seri_no">
+                            <p>{{item.SeriNo}}</p>
+                        </div>
+                        <img [src]="lastikTipResim(item.LastikTipID)">
+                        <div *cdkDragPlaceholder style="display: none"></div>
+                    </div>
+                    <div *ngIf="aks11ASGD.length===0" (click)="bosLastikDoubleClick('aks11ASGD',aks11ASGDId,1)">
+                        <img src="assets/aks-iskeletleri/12li_treyler/img/tire_soft.png">
+                    </div>
+                </div>
+
+                <div cdkDropList #aks_112_A_SLI="cdkDropList" [cdkDropListAutoScrollDisabled]="false"
+                    [cdkDropListSortingDisabled]="true" [cdkDropListData]="aks112ASLI"
+                    [cdkDropListConnectedTo]="[aks_111_A_SLD,aks_11_A_SGD,aks_12_A_SGI,aks_29_A_SLD,aks_23_A_SGD,aks_210_A_SLI,aks_24_A_SGI,aks_37_A_SLD,aks_35_A_SGD,aks_38_A_SLI,aks_36_A_SGI,depo,hurdalik]"
+                    (cdkDropListDropped)="onDrop($event)" class="arka_sol_ic2" tire-aks-name="112-A-SLİ" [attr.tire_aks_number]="'1'"
+                    [attr.tire_aks_id]="aks112ASLIId">
+                    <div cdkDrag *ngFor="let item of aks112ASLI" (click)="doubleClick(item.LastikID,1,aks112ASLIId)" tip="lastik" [attr.tire_aks_id]="aks112ASLIId">
+                        <div class="seri_no">
+                            <p>{{item.SeriNo}}</p>
+                        </div>
+                        <img [src]="lastikTipResim(item.LastikTipID)">
+                        <div *cdkDragPlaceholder style="display: none"></div>
+                    </div>
+                    <div *ngIf="aks112ASLI.length===0" (click)="bosLastikDoubleClick('aks112ASLI',aks112ASLIId,1)">
+                        <img src="assets/aks-iskeletleri/12li_treyler/img/tire_soft.png">
+                    </div>
+                </div>
+
+                <div cdkDropList #aks_12_A_SGI="cdkDropList" [cdkDropListAutoScrollDisabled]="false"
+                    [cdkDropListSortingDisabled]="true" [cdkDropListData]="aks12ASGI"
+                    [cdkDropListConnectedTo]="[aks_111_A_SLD,aks_11_A_SGD,aks_112_A_SLI,aks_29_A_SLD,aks_23_A_SGD,aks_210_A_SLI,aks_24_A_SGI,aks_37_A_SLD,aks_35_A_SGD,aks_38_A_SLI,aks_36_A_SGI,depo,hurdalik]"
+                    (cdkDropListDropped)="onDrop($event)" class="arka_sag_ic2" tire-aks-name="12-A-SGİ" [attr.tire_aks_number]="'1'"
+                    [attr.tire_aks_id]="aks12ASGIId">
+                    <div cdkDrag *ngFor="let item of aks12ASGI" (click)="doubleClick(item.LastikID,1,aks12ASGIId)" tip="lastik" [attr.tire_aks_id]="aks12ASGIId">
+                        <div class="seri_no">
+                            <p>{{item.SeriNo}}</p>
+                        </div>
+                        <img [src]="lastikTipResim(item.LastikTipID)">
+                        <div *cdkDragPlaceholder style="display: none"></div>
+                    </div>
+                    <div *ngIf="aks12ASGI.length===0" (click)="bosLastikDoubleClick('aks12ASGI',aks12ASGIId,1)">
+                        <img src="assets/aks-iskeletleri/12li_treyler/img/tire_soft.png">
+                    </div>
+                </div>
+
+            </div>
+            <div class="arka_birlesme">
+
+                <div cdkDropList #aks_29_A_SLD="cdkDropList" [cdkDropListAutoScrollDisabled]="false"
+                    [cdkDropListSortingDisabled]="true" [cdkDropListData]="aks29ASLD"
+                    [cdkDropListConnectedTo]="[aks_111_A_SLD,aks_11_A_SGD,aks_112_A_SLI,aks_12_A_SGI,aks_23_A_SGD,aks_210_A_SLI,aks_24_A_SGI,aks_37_A_SLD,aks_35_A_SGD,aks_38_A_SLI,aks_36_A_SGI,depo,hurdalik]"
+                    (cdkDropListDropped)="onDrop($event)" class="arka_sol" tire-aks-name="29-A-SLD" [attr.tire_aks_number]="'2'"
+                    [attr.tire_aks_id]="aks29ASLDId">
+                    <div cdkDrag *ngFor="let item of aks29ASLD" (click)="doubleClick(item.LastikID,2,aks29ASLDId)" tip="lastik" [attr.tire_aks_id]="aks29ASLDId">
+                        <div class="seri_no">
+                            <p>{{item.SeriNo}}</p>
+                        </div>
+                        <img [src]="lastikTipResim(item.LastikTipID)">
+                        <div *cdkDragPlaceholder style="display: none"></div>
+                    </div>
+                    <div *ngIf="aks29ASLD.length===0" (click)="bosLastikDoubleClick('aks29ASLD',aks29ASLDId,2)">
+                        <img src="assets/aks-iskeletleri/12li_treyler/img/tire_soft.png">
+                    </div>
+                </div>
+
+                <div cdkDropList #aks_23_A_SGD="cdkDropList" [cdkDropListAutoScrollDisabled]="false"
+                    [cdkDropListSortingDisabled]="true" [cdkDropListData]="aks23ASGD"
+                    [cdkDropListConnectedTo]="[aks_111_A_SLD,aks_11_A_SGD,aks_112_A_SLI,aks_12_A_SGI,aks_29_A_SLD,aks_210_A_SLI,aks_24_A_SGI,aks_37_A_SLD,aks_35_A_SGD,aks_38_A_SLI,aks_36_A_SGI,depo,hurdalik]"
+                    (cdkDropListDropped)="onDrop($event)" class="arka_sag" tire-aks-name="23-A-SGD" [attr.tire_aks_number]="'2'"
+                    [attr.tire_aks_id]="aks23ASGDId">
+                    <div cdkDrag *ngFor="let item of aks23ASGD" (click)="doubleClick(item.LastikID,2,aks23ASGDId)" tip="lastik" [attr.tire_aks_id]="aks23ASGDId">
+                        <div class="seri_no">
+                            <p>{{item.SeriNo}}</p>
+                        </div>
+                        <img [src]="lastikTipResim(item.LastikTipID)">
+                        <div *cdkDragPlaceholder style="display: none"></div>
+                    </div>
+                    <div *ngIf="aks23ASGD.length===0" (click)="bosLastikDoubleClick('aks23ASGD',aks23ASGDId,2)">
+                        <img src="assets/aks-iskeletleri/12li_treyler/img/tire_soft.png">
+                    </div>
+                </div>
+
+                <div cdkDropList #aks_210_A_SLI="cdkDropList" [cdkDropListAutoScrollDisabled]="false"
+                    [cdkDropListSortingDisabled]="true" [cdkDropListData]="aks210ASLI"
+                    [cdkDropListConnectedTo]="[aks_111_A_SLD,aks_11_A_SGD,aks_112_A_SLI,aks_12_A_SGI,aks_29_A_SLD,aks_23_A_SGD,aks_24_A_SGI,aks_37_A_SLD,aks_35_A_SGD,aks_38_A_SLI,aks_36_A_SGI,depo,hurdalik]"
+                    (cdkDropListDropped)="onDrop($event)" class="arka_sol_ic" tire-aks-name="210-A-SLİ" [attr.tire_aks_number]="'2'"
+                    [attr.tire_aks_id]="aks210ASLIId">
+                    <div cdkDrag *ngFor="let item of aks210ASLI" (click)="doubleClick(item.LastikID,2,aks210ASLIId)" tip="lastik" [attr.tire_aks_id]="aks210ASLIId">
+                        <div class="seri_no">
+                            <p>{{item.SeriNo}}</p>
+                        </div>
+                        <img [src]="lastikTipResim(item.LastikTipID)">
+                        <div *cdkDragPlaceholder style="display: none"></div>
+                    </div>
+                    <div *ngIf="aks210ASLI.length===0" (click)="bosLastikDoubleClick('aks210ASLI',aks210ASLIId,2)">
+                        <img src="assets/aks-iskeletleri/12li_treyler/img/tire_soft.png">
+                    </div>
+                </div>
+
+                <div class="top_aks">
+                    <img src="assets/aks-iskeletleri/12li_treyler/img/top_dingil.png">
+                </div>
+
+                <div cdkDropList #aks_24_A_SGI="cdkDropList" [cdkDropListAutoScrollDisabled]="false"
+                    [cdkDropListSortingDisabled]="true" [cdkDropListData]="aks24ASGI"
+                    [cdkDropListConnectedTo]="[aks_111_A_SLD,aks_11_A_SGD,aks_112_A_SLI,aks_12_A_SGI,aks_29_A_SLD,aks_23_A_SGD,aks_210_A_SLI,aks_37_A_SLD,aks_35_A_SGD,aks_38_A_SLI,aks_36_A_SGI,depo,hurdalik]"
+                    (cdkDropListDropped)="onDrop($event)" class="arka_sag_ic" tire-aks-name="24-A-SGİ" [attr.tire_aks_number]="'2'"
+                    [attr.tire_aks_id]="aks24ASGIId">
+                    <div cdkDrag *ngFor="let item of aks24ASGI" (click)="doubleClick(item.LastikID,2,aks24ASGIId)" tip="lastik" [attr.tire_aks_id]="aks24ASGIId">
+                        <div class="seri_no">
+                            <p>{{item.SeriNo}}</p>
+                        </div>
+                        <img [src]="lastikTipResim(item.LastikTipID)">
+                        <div *cdkDragPlaceholder style="display: none"></div>
+                    </div>
+                    <div *ngIf="aks24ASGI.length===0" (click)="bosLastikDoubleClick('aks24ASGI',aks24ASGIId,2)">
+                        <img src="assets/aks-iskeletleri/12li_treyler/img/tire_soft.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class="arka_birlesme2">
+
+                <div cdkDropList #aks_37_A_SLD="cdkDropList" [cdkDropListAutoScrollDisabled]="false"
+                    [cdkDropListSortingDisabled]="true" [cdkDropListData]="aks37ASLD"
+                    [cdkDropListConnectedTo]="[aks_111_A_SLD,aks_11_A_SGD,aks_112_A_SLI,aks_12_A_SGI,aks_29_A_SLD,aks_23_A_SGD,aks_210_A_SLI,aks_24_A_SGI,aks_35_A_SGD,aks_38_A_SLI,aks_36_A_SGI,depo,hurdalik]"
+                    (cdkDropListDropped)="onDrop($event)" class="arka_sol2" tire-aks-name="37-A-SLD" [attr.tire_aks_number]="'3'"
+                    [attr.tire_aks_id]="aks37ASLDId">
+                    <div cdkDrag *ngFor="let item of aks37ASLD" (click)="doubleClick(item.LastikID,3,aks37ASLDId)" tip="lastik" [attr.tire_aks_id]="aks37ASLDId">
+                        <div class="seri_no">
+                            <p>{{item.SeriNo}}</p>
+                        </div>
+                        <img [src]="lastikTipResim(item.LastikTipID)">
+                        <div *cdkDragPlaceholder style="display: none"></div>
+                    </div>
+                    <div *ngIf="aks37ASLD.length===0" (click)="bosLastikDoubleClick('aks37ASLD',aks37ASLDId,3)">
+                        <img src="assets/aks-iskeletleri/12li_treyler/img/tire_soft.png">
+                    </div>
+                </div>
+
+                <div cdkDropList #aks_35_A_SGD="cdkDropList" [cdkDropListAutoScrollDisabled]="false"
+                    [cdkDropListSortingDisabled]="true" [cdkDropListData]="aks35ASGD"
+                    [cdkDropListConnectedTo]="[aks_111_A_SLD,aks_11_A_SGD,aks_112_A_SLI,aks_12_A_SGI,aks_29_A_SLD,aks_23_A_SGD,aks_210_A_SLI,aks_24_A_SGI,aks_37_A_SLD,aks_38_A_SLI,aks_36_A_SGI,depo,hurdalik]"
+                    (cdkDropListDropped)="onDrop($event)" class="arka_sag2" tire-aks-name="35-A-SGD" [attr.tire_aks_number]="'3'"
+                    [attr.tire_aks_id]="aks35ASGDId">
+                    <div cdkDrag *ngFor="let item of aks35ASGD" (click)="doubleClick(item.LastikID,3,aks35ASGDId)" tip="lastik" [attr.tire_aks_id]="aks35ASGDId">
+                        <div class="seri_no">
+                            <p>{{item.SeriNo}}</p>
+                        </div>
+                        <img [src]="lastikTipResim(item.LastikTipID)">
+                        <div *cdkDragPlaceholder style="display: none"></div>
+                    </div>
+                    <div *ngIf="aks35ASGD.length===0" (click)="bosLastikDoubleClick('aks35ASGD',aks35ASGDId,3)">
+                        <img src="assets/aks-iskeletleri/12li_treyler/img/tire_soft.png">
+                    </div>
+                </div>
+
+                <div cdkDropList #aks_38_A_SLI="cdkDropList" [cdkDropListAutoScrollDisabled]="false"
+                    [cdkDropListSortingDisabled]="true" [cdkDropListData]="aks38ASLI"
+                    [cdkDropListConnectedTo]="[aks_111_A_SLD,aks_11_A_SGD,aks_112_A_SLI,aks_12_A_SGI,aks_29_A_SLD,aks_23_A_SGD,aks_210_A_SLI,aks_24_A_SGI,aks_37_A_SLD,aks_35_A_SGD,aks_36_A_SGI,depo,hurdalik]"
+                    (cdkDropListDropped)="onDrop($event)" class="arka_sol_ic2" tire-aks-name="38-A-SLİ" [attr.tire_aks_number]="'3'"
+                    [attr.tire_aks_id]="aks38ASLIId">
+                    <div cdkDrag *ngFor="let item of aks38ASLI" (click)="doubleClick(item.LastikID,3,aks38ASLIId)" tip="lastik" [attr.tire_aks_id]="aks38ASLIId">
+                        <div class="seri_no">
+                            <p>{{item.SeriNo}}</p>
+                        </div>
+                        <img [src]="lastikTipResim(item.LastikTipID)">
+                        <div *cdkDragPlaceholder style="display: none"></div>
+                    </div>
+                    <div *ngIf="aks38ASLI.length===0" (click)="bosLastikDoubleClick('aks38ASLI',aks38ASLIId,3)">
+                        <img src="assets/aks-iskeletleri/12li_treyler/img/tire_soft.png">
+                    </div>
+                </div>
+
+
+                <div cdkDropList #aks_36_A_SGI="cdkDropList" [cdkDropListAutoScrollDisabled]="false"
+                    [cdkDropListSortingDisabled]="true" [cdkDropListData]="aks36ASGI"
+                    [cdkDropListConnectedTo]="[aks_111_A_SLD,aks_11_A_SGD,aks_112_A_SLI,aks_12_A_SGI,aks_29_A_SLD,aks_23_A_SGD,aks_210_A_SLI,aks_24_A_SGI,aks_37_A_SLD,aks_35_A_SGD,aks_38_A_SLI,depo,hurdalik]"
+                    (cdkDropListDropped)="onDrop($event)" class="arka_sag_ic2" tire-aks-name="36-A-SGİ" [attr.tire_aks_number]="'3'"
+                    [attr.tire_aks_id]="aks36ASGIId">
+                    <div cdkDrag *ngFor="let item of aks36ASGI" (click)="doubleClick(item.LastikID,3,aks36ASGIId)" tip="lastik" [attr.tire_aks_id]="aks36ASGIId">
+                        <div class="seri_no">
+                            <p>{{item.SeriNo}}</p>
+                        </div>
+                        <img [src]="lastikTipResim(item.LastikTipID)">
+                        <div *cdkDragPlaceholder style="display: none"></div>
+                    </div>
+                    <div *ngIf="aks36ASGI.length===0" (click)="bosLastikDoubleClick('aks36ASGI',aks36ASGIId,3)">
+                        <img src="assets/aks-iskeletleri/12li_treyler/img/tire_soft.png">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<div class="dip_not">
+    <ul>
+        <li>
+            <div class="yeni"></div>
+            <p>Yeni</p>
+        </li>
+        <li>
+            <div class="kaplama"></div>
+            <p>Kaplama</p>
+        </li>
+        <li>
+            <div class="dis_acma"> </div>
+            <p>Kullanılmış</p>
+        </li>
+        <li>
+            <div class="oe"></div>
+            <p>OE</p>
+        </li>
+    </ul>
+</div>
+
+<div #LastikDialogContainer></div>
+
+<div #AracKayitContainer></div>
+
+<div #AracBilgiContainer></div>
+
+<div #BosLastikEkleContainer></div>

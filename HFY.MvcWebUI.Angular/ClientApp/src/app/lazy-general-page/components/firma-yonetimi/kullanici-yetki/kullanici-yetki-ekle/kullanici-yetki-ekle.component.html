@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+
+                <h5 class="box-title text-primary">{{firmaAd}} - Yetkili Kullanıcı Ekle</h5>
+                <form class="example-form">
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02" class="active">Kullanıcı</label>
+                            <br />
+                            <ng-select2 [data]="emsalKullanicilar" [(ngModel)]="seciliFirmaId" [ngModelOptions]="{standalone: true}"
+                                [placeholder]="'Lütfen bir kullanıcı seçiniz..'">
+                            </ng-select2>
+                        </div>
+                    </div>
+                    <button class="btn pull-right btn-primary" (click)="kullaniciYetkiEkle()"
+                        type="submit">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

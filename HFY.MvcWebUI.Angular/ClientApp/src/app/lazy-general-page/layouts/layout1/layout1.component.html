@@ -1,0 +1,177 @@
+<div class="page-wrapper">
+  <!-- BEGIN: Header-->
+  <header class="header" *ngIf="!mobilGorunum">
+    <nav class="navbar navbar-expand navbar-dark header-navbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item mr-2"><a class="nav-link navbar-icon header-nav-toggler" id="header-nav-toggler"><span
+              class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a></li>
+        <li><a class="navbar-brand d-none d-sm-inline-block" href="/home">Hankook</a></li>
+
+      </ul>
+      <ul class="navbar-nav">
+
+        <li class="nav-item dropdown ml-3">
+          <a class="nav-link dropdown-toggle no-arrow d-inline-flex align-items-center px-4"
+            style="background-color: rgba(255,255,255,.1);" data-toggle="dropdown" href="#">
+            <div class="d-none d-sm-inline-block mr-2 text-right">
+              <div class="font-weight-strong text-white">{{userNameSurname}}</div>
+              <div class="font-12">{{role}}</div>
+            </div><span class="position-relative d-inline-block">
+              <img class="rounded-circle" src="assets/template/assets/img/users/admin-image.png" alt="image"
+                width="36" /><span class="badge-point badge-success avatar-badge"></span>
+            </span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right pt-0 pb-4" style="min-width: 280px;">
+            <div class="p-4 mb-4 media align-items-center border-bottom">
+              <img class="rounded-circle mr-3" src="assets/template/assets/img/users/admin-image.png" alt="image"
+                width="55" />
+              <div class="media-body">
+                <h5 class="mb-1">{{userNameSurname}}</h5>
+                <div class="font-13">{{role}}</div>
+              </div>
+            </div><a class="dropdown-item d-flex align-items-center" href="#">
+              <i class="ft-user mr-3 font-18 text-muted"></i>Profilim
+            </a><a class="dropdown-item d-flex align-items-center" href="#">
+              <i class="ft-settings mr-3 font-18 text-muted"></i>Ayarlar
+            </a>
+            <div class="dropdown-divider my-3"></div>
+            <div class="mx-4">
+              <a class="btn btn-link p-0" (click)="logout()">
+                <span class="btn-icon">
+                  <i class="ft-power mr-2 font-18"></i>Çıkış Yap
+                </span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li style="display:none">
+          <a class="nav-link navbar-icon quick-sidebar-toggler" href="javascript:;">
+            <span class="ti-align-right"></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <nav class="header-nav" id="header-nav">
+      <ul class="nav header-menu position-static">
+        <li class="nav-item dropdown">
+          <a class="header-menu-toggle dropdown-toggle no-arrow" data-toggle="dropdown" href="javascript:;">
+            Araç Yönetimi<i class="ti-angle-down arrow ml-2"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item d-flex align-items-center" routerLink="arac-yonetimi/araclar"><span
+                class="menu-link-point"></span>Araçlar</a>
+            <a class="dropdown-item d-flex align-items-center" *ngIf="adminRole" routerLink="arac-yonetimi/arac-marka">
+              <span class="menu-link-point"></span>Markalar
+            </a><a class="dropdown-item d-flex align-items-center" *ngIf="adminRole"
+              routerLink="arac-yonetimi/arac-kategori">
+              <span class="menu-link-point"></span>Kategoriler
+            </a><a class="dropdown-item d-flex align-items-center" *ngIf="adminRole"
+              routerLink="arac-yonetimi/aks-pozisyon">
+              <span class="menu-link-point"></span>Aks Pozisyonları
+            </a>
+            <!-- <a class="dropdown-item d-flex align-items-center" href="dashboard-ecommerce.html"><span
+                class="menu-link-point"></span>Gider Kategorileri</a> -->
+          </div>
+
+        </li>
+
+        <li class="nav-item dropdown position-static"><a class="header-menu-toggle dropdown-toggle no-arrow"
+            data-toggle="dropdown" href="javascript:;">Lastik Yönetimi<i class="ti-angle-down arrow ml-2"></i></a>
+          <div class="dropdown-menu mega-dropdown">
+            <div class="row">
+              <div class="col">
+                <a class="dropdown-item d-flex align-items-center" routerLink="lastik-yonetimi/lastik"><span
+                    class="menu-link-point"></span>Lastikler</a>
+                <a class="dropdown-item d-flex align-items-center" *ngIf="adminRole"
+                  routerLink="lastik-yonetimi/lastik-marka"><span class="menu-link-point"></span>Markalar</a>
+                <a class="dropdown-item d-flex align-items-center" *ngIf="adminRole"
+                  routerLink="lastik-yonetimi/ebat"><span class="menu-link-point"></span>Ebatlar</a>
+                <!-- <a class="dropdown-item d-flex align-items-center" href="#"><span class="menu-link-point"></span>Jant
+                  Ölçüleri</a> -->
+                <a class="dropdown-item d-flex align-items-center" *ngIf="adminRole"
+                  routerLink="lastik-yonetimi/yuk-indeks"><span class="menu-link-point"></span>Yük
+                  İndeksleri</a>
+                <a class="dropdown-item d-flex align-items-center" *ngIf="adminRole"
+                  routerLink="lastik-yonetimi/hiz-indeks"><span class="menu-link-point"></span>Hız
+                  İndeksleri</a>
+                <a class="dropdown-item d-flex align-items-center" *ngIf="adminRole"
+                  routerLink="lastik-yonetimi/lastik-tur"><span class="menu-link-point"></span>Lastik
+                  Türü</a>
+                <a class="dropdown-item d-flex align-items-center" *ngIf="adminRole"
+                  routerLink="lastik-yonetimi/hava-fark-tanim"><span class="menu-link-point"></span>Hava Fark
+                  Tanımları</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown position-static"><a class="header-menu-toggle dropdown-toggle no-arrow"
+            data-toggle="dropdown" href="javascript:;">Raporlar<i class="ti-angle-down arrow ml-2"></i></a>
+          <div class="dropdown-menu mega-dropdown">
+            <div class="row">
+              <div class="col">
+                <a class="dropdown-item d-flex align-items-center" routerLink=""><span
+                    class="menu-link-point"></span>Filo İnceleme</a>
+                <a class="dropdown-item d-flex align-items-center" routerLink=""><span class="menu-link-point"></span>Km
+                  / Rakip Analiz</a>
+                <a class="dropdown-item d-flex align-items-center" routerLink=""><span
+                    class="menu-link-point"></span>Lastik Ebat / Marka Dağılımı</a>
+                <a class="dropdown-item d-flex align-items-center" routerLink=""><span
+                    class="menu-link-point"></span>Lastik Basınç / Tahmini Kayıp Analizi</a>
+                <a class="dropdown-item d-flex align-items-center" routerLink=""><span
+                    class="menu-link-point"></span>Lastik Diş Derinliği Raporu</a>
+                <a class="dropdown-item d-flex align-items-center" routerLink="raporlar/hurda-lastikler"><span
+                    class="menu-link-point"></span>Hurda Lastikler</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown position-static"><a class="header-menu-toggle dropdown-toggle no-arrow"
+            data-toggle="dropdown" href="javascript:;">Firma Yönetimi<i class="ti-angle-down arrow ml-2"></i></a>
+          <div class="dropdown-menu mega-dropdown">
+            <div class="row">
+              <div class="col ">
+
+                <div class="dropdown">
+                    <a class="dropdown-item d-flex align-items-center" *ngIf="adminRole" routerLink="firma-yonetimi/isletme"><span
+                      class="menu-link-point"></span>İşletmeler</a>
+                  <a class="dropdown-item d-flex align-items-center" *ngIf="adminRole || firmaRole" routerLink="firma-yonetimi/firma"><span
+                      class="menu-link-point"></span>Firmalar</a>
+                  </div>
+
+                <div class="dropdown "> <a class="dropdown-item d-flex align-items-center" *ngIf="!subeRole" routerLink="firma-yonetimi/sube"><span
+                      class="menu-link-point"></span>Şubeler</a>
+                  </div>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+
+    </nav>
+  </header><!-- END: Header-->
+  <div class="content-wrapper">
+    <!-- BEGIN: Content-->
+    <div class="content-area">
+      <div class="page-content fade-in-up">
+        <!-- Previous Page Start -->
+        <i class="ft-arrow-left" id="birOncekiSayfayaDon" *ngIf="previousUrl!==currentUrl" (click)="getPreviousUrl()"
+          style="font-size:20px;margin-right: 5px;margin-bottom:10px;cursor:pointer"></i>
+        <!-- Previous Page End -->
+        <router-outlet (activate)="routerActivate()"></router-outlet>
+      </div><!-- BEGIN: Footer-->
+      <footer class="page-footer flexbox">
+        <div class="text-muted">2019 © <strong>HANKOOK</strong>. All rights reserved</div>
+      </footer><!-- END: Footer-->
+    </div><!-- END: Content-->
+  </div>
+</div><!-- BEGIN: Search form-->
+
+<div class="sidenav-backdrop backdrop"></div>
+<div class="preloader-backdrop">
+  <div class="page-preloader">Loading</div>
+</div><!-- END: Page backdrops-->

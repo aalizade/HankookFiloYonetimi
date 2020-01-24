@@ -1,0 +1,63 @@
+<!-- BEGIN: Page content-->
+<div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <h5 class="mb-4">Aks Pozisyonları</h5>
+            <div class="nav nav-pills nav-pills-links d-none d-sm-flex">
+              <button routerLink="/admin/arac-yonetimi/aks-pozisyon-ekle" class="btn btn-primary mb-3" type="button">
+                Yeni
+                Kayıt
+                Ekle +
+              </button>
+            </div>
+          </div>
+          <table datatable [dtOptions]="dtOptions" class="table table-hover cols-align-middle contacts-table">
+            <thead class="thead-light">
+              <tr>
+                <th>Sıra</th>
+                <th>Ad</th>
+                <th>Aks</th>
+                <th>Pozisyon</th>
+                <th>Ön/Arka</th>
+                <th>Sol/Sağ</th>
+                <th>İç/Dış</th>
+                <th>Çeker</th>
+                <th>İşlemler</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="dataTablesData?.length != 0">
+              <tr *ngFor="let item of dataTablesData">
+                  <td>{{ item.Sira }}</td>
+                <td>{{ item.Ad }}</td>
+                <td>{{ item.AksNo }}</td>
+                <td>{{ item.Pozisyon }}</td>
+                <td>{{(item.OnArkaId == 0) ? '' : ((item.OnArkaId == 3) ? 'Multi' : (item.OnArkaId == 1 ? 'Ön' : 'Arka')) }}</td>
+                <td>{{(item.SolSagId == 0) ? '' : (item.SolSagId == 1 ? 'Sol' : 'Sağ') }}</td>
+                <td>{{ (item.IcDisId == 0) ? '' : (item.IcDisId == 1 ? 'İç' : 'Dış') }}</td>
+                <td>{{ (item.Ceker == 0 ? 'Hayır' : 'Evet') }}</td>
+                <td>
+                  <a routerLink="/admin/arac-yonetimi/aks-pozisyon-guncelle/{{item.AksPozisyonID}}" title="Düzenle">
+                    <i class="ft-edit"
+                       style="font-size:20px;margin-right: 10px"></i>
+                  </a>
+                  <a (click)="aksPozisyonSil(item.AksPozisyonID)" title="Sil">
+                    <i class="ft-delete"
+                       style="font-size:20px;margin-right: 10px;color:red;cursor: pointer;"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+            <tbody *ngIf="dataTablesData?.length == 0">
+              <tr>
+                <td colspan="3" class="no-data-available">No data!</td>
+              </tr>
+            <tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- END: Page content-->

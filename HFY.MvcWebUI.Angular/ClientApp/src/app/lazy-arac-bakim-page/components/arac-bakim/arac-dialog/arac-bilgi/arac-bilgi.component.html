@@ -1,0 +1,48 @@
+<ngx-smart-modal #aracBilgisi identifier="aracBilgisi" [dismissable]="false">
+  <div class="info">
+    <div class="top_btn">
+      <h3>Araç Bilgisi </h3>
+      <div class="lastik_bilgi_gnl">
+        <ul>
+          <li>
+            <p>Firma: </p><strong>
+              <p>{{firmaKisaAd}}</p>
+            </strong>
+          </li>
+          <li>
+            <p>Plaka: </p><strong>
+              <p>{{plaka}}</p>
+            </strong>
+          </li>
+          <li>
+            <p>Marka: </p><strong>
+              <p>{{marka}} </p>
+            </strong>
+          </li>
+          <li>
+            <p>Model: </p><strong>
+              <p>{{model}}</p>
+            </strong>
+          </li>
+        </ul>
+      </div>
+      <div class="lastik_bilgi_gnl">
+        <ul>
+          <li>
+            <p>Araç Km: </p><strong>
+              <p>{{aracKm | mask:'dot_separator'}}</p>
+            </strong>
+          </li>
+          <li>
+            <p>Son İşlem: </p><strong>
+              <p>{{sonIslemTarihi | date:'dd.MM.yyyy'}}</p>
+            </strong>
+          </li>
+        </ul>
+        <div class="close" (click)="aracBilgisi.close()">
+          <img src="assets/aks-iskeletleri/lastik-dialog/lastik-bilgisi/img/cancel.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</ngx-smart-modal>

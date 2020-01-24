@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HFY.DataAccess\HFY.DataAccess.csproj" />
+    <ProjectReference Include="..\HFY.Entities\HFY.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

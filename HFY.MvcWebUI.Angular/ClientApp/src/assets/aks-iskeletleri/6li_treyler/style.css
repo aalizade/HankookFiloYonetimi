@@ -1,0 +1,520 @@
+.info {
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+}
+
+.clear {
+    clear: both;
+}
+
+.icerik {
+    -webkit-box-shadow: 8px 13px 30px -9px rgba(38, 38, 38, 0.82);
+    -moz-box-shadow: 8px 13px 30px -9px rgba(38, 38, 38, 0.82);
+    box-shadow: 8px 13px 30px -9px rgba(38, 38, 38, 0.82);
+    width: 350px;
+    border-radius: 15px;
+    padding: 3px 20px 3px 20px;
+    margin: 0px auto;
+    background: linear-gradient(to right, #5a8ed4, #2c3aa5);
+    width: 354px;
+}
+
+.icerik a p {
+    display: inline-block;
+    color: #fff;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: 'Century Gothic';
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.icerik a p:hover {
+    color: #000;
+}
+
+.icerik .servis_ver p {
+    width: 250px;
+}
+
+.icerik .arac_bilgileri p {
+    width: 100px;
+}
+
+.hizalama {
+    position: relative;
+    margin: 10px auto;
+    width: 316px;
+}
+
+.top_btn {
+    position: relative;
+    margin: 10px auto;
+    width: 320px;
+    bottom: 10px;
+    /* height: 105px; */
+}
+
+.depo {
+    width: 155px;
+    border-radius: 15px;
+    cursor: pointer;
+    background: linear-gradient(to right,#5a8ed4,#2c3aa5);
+    margin-top: 10px;
+    box-shadow: 8px 13px 30px -9px rgba(38,38,38,.82);
+    z-index: 9999;
+    display: inline-block;
+}
+
+.depo p {
+    font-weight: 600;
+    font-size: 16px;
+    font-family: 'Century Gothic';
+    padding: 0;
+    float: right;
+    color: white;
+    margin-right: 12px;
+}
+
+.depo img {
+    width: 40px;
+    height: auto;
+    margin-left: 12px;
+    margin-top: 4px;
+}
+
+.servis_ver {
+    width: 155px;
+    float: left;
+    border-radius: 15px;
+    cursor: pointer;
+    background: linear-gradient(to right, #5a8ed4, #2c3aa5);
+    /* margin: 0px auto; */
+    /* margin-left: 5px; */
+    -webkit-box-shadow: 8px 13px 30px -9px rgba(38, 38, 38, 0.82);
+    -moz-box-shadow: 8px 13px 30px -9px rgba(38, 38, 38, 0.82);
+    box-shadow: 8px 13px 30px -9px rgba(38, 38, 38, 0.82);
+    z-index: 9999;
+}
+
+.servis_ver p {
+    font-weight: 600;
+    font-size: 16px;
+    font-family: 'Century Gothic';
+    padding: 0;
+    float: right;
+    color: white;
+    margin-right: 10px;
+}
+
+.servis_ver img {
+    width: 40px;
+    height: auto;
+    margin-left: 12px;
+    margin-top: 4px;
+}
+
+.hurdalik {
+    margin-top: -51px;
+    width: 155px;
+    height: 52px;
+    border-radius: 15px;
+    cursor: pointer;
+    background: linear-gradient(to right,#5a8ed4,#2c3aa5);
+    box-shadow: 8px 13px 30px -9px rgba(38,38,38,.82);
+    z-index: 9999;
+    /* display: inline-block; */
+    margin-left: 166px;
+    /* margin-bottom: -99px; */
+}
+
+.hurdalik p {
+    font-weight: 600;
+    font-size: 16px;
+    font-family: 'Century Gothic';
+    padding: 0;
+    float: right;
+    color: white;
+    margin-right: 10px;
+}
+
+.hurdalik img {
+    width: 40px;
+    height: auto;
+    margin-left: 12px;
+    margin-top: 4px;
+}
+
+.arac_bilgileri {
+    width: 155px;
+    float: right;
+    border-radius: 15px;
+    cursor: pointer;
+    background: linear-gradient(to right, #5a8ed4, #2c3aa5);
+    /* margin: 0px auto; */
+    /* margin-right: 30px; */
+    -webkit-box-shadow: 8px 13px 30px -9px rgba(38, 38, 38, 0.82);
+    -moz-box-shadow: 8px 13px 30px -9px rgba(38, 38, 38, 0.82);
+    box-shadow: 8px 13px 30px -9px rgba(38, 38, 38, 0.82);
+    z-index: 9999;
+}
+
+.arac_bilgileri p {
+    font-weight: 600;
+    font-size: 16px;
+    font-family: 'Century Gothic';
+    padding: 0;
+    float: right;
+    color: white;
+    margin-right: 5px;
+}
+
+.arac_bilgileri img {
+    width: 40px;
+    height: auto;
+    margin-left: 12px;
+    margin-top: 4px;
+}
+
+.arac_aks {
+    margin: 0px auto;
+    width: auto;
+    position: relative;
+    text-align: center;
+    /* float: left;
+    margin-left: 40px; */
+    /* z-index:-99; */
+}
+
+.on_cam {
+    margin-top: 10%;
+    margin-left: 20%;
+    position: relative;
+    width: 70px;
+    margin-bottom: -30px;
+}
+
+.on_birlesme {
+    width: 314px;
+    position: relative;
+    display: inline-block;
+}
+
+.on_birlesme2 {
+    /* margin-top: 30px; */
+    width: 314px;
+    position: relative;
+    display: inline-block;
+}
+
+.arka_birlesme {
+    width: 312px;
+    position: relative;
+    display: inline-block;
+}
+
+.arka_birlesme2 {
+    width: 312px;
+    position: relative;
+    display: inline-block;
+}
+
+.on_sol {
+    float: left;
+    position: relative;
+    width: 45px;
+    z-index: 88;
+    height: 86px;
+    overflow: hidden;
+}
+
+.on_sol img {
+    height: auto;
+    width: 40px;
+}
+
+.orta_aks {
+    margin-top: 10%;
+    float: left;
+    position: absolute;
+    z-index: 9;
+}
+
+.orta_aks img {
+    width: 74%;
+    height: 196px;
+    margin-top: 35px;
+}
+
+.top_aks {
+    margin-top: 10%;
+    float: left;
+    position: absolute;
+    z-index: 9;
+}
+
+.top_aks img {
+    width: 74%;
+    /* height: 308px; */
+}
+
+.orta_aks2 {
+    margin-top: -18%;
+    float: left;
+    position: absolute;
+    z-index: 9;
+}
+
+.orta_aks2 img {
+    width: 74%;
+    height: 240px;
+}
+
+.on_sag {
+    float: right;
+    position: relative;
+    width: 45px;
+    z-index: 88;
+    height: 86px;
+    overflow: hidden;
+}
+
+.on_sag img {
+    height: auto;
+    width: 40px;
+}
+
+.arka_sol {
+    /* margin-top: 130px; */
+    float: left;
+    position: relative;
+    width: 45px;
+    z-index: 88;
+    height: 86px;
+    overflow: hidden;
+}
+
+.arka_sol img {
+    height: auto;
+    width: 40px;
+}
+
+.arka_sol_ic {
+    /* margin-top: 130px; */
+    float: left;
+    position: relative;
+    width: 45px;
+    z-index: 88;
+    height: 86px;
+    overflow: hidden;
+}
+
+.arka_sol_ic img {
+    height: auto;
+    width: 40px;
+}
+
+.arka_sag {
+    /* margin-top: 130px; */
+    float: right;
+    position: relative;
+    width: 45px;
+    z-index: 88;
+    height: 86px;
+    overflow: hidden;
+}
+
+.arka_sag img {
+    height: auto;
+    width: 40px;
+}
+
+.arka_sag_ic {
+    /* margin-top: 130px; */
+    float: right;
+    position: relative;
+    width: 45px;
+    z-index: 88;
+    height: 86px;
+    overflow: hidden;
+}
+
+.arka_sag_ic img {
+    height: auto;
+    width: 40px;
+}
+
+.arka_birlesme2 {
+    width: 312px;
+    position: relative;
+    display: inline-block;
+}
+
+.arka_sol2 {
+    /* margin-top: 200px; */
+    float: left;
+    position: relative;
+    width: 45px;
+    z-index: 88;
+    height: 86px;
+    overflow: hidden;
+}
+
+.arka_sol2 img {
+    height: auto;
+    width: 40px;
+}
+
+.arka_sol_ic2 {
+    /* margin-top: 200px; */
+    float: left;
+    position: relative;
+    width: 45px;
+    z-index: 88;
+    height: 86px;
+    overflow: hidden;
+}
+
+.arka_sol_ic2 img {
+    height: auto;
+    width: 40px;
+}
+
+.arka_sag2 {
+    /* margin-top: 200px; */
+    float: right;
+    position: relative;
+    width: 45px;
+    z-index: 88;
+    height: 86px;
+    overflow: hidden;
+}
+
+.arka_sag2 img {
+    height: auto;
+    width: 40px;
+}
+
+.arka_sag_ic2 {
+    /* margin-top: 200px; */
+    float: right;
+    position: relative;
+    width: 45px;
+    z-index: 88;
+    height: 86px;
+    overflow: hidden;
+}
+
+.arka_sag_ic2 img {
+    height: auto;
+    width: 40px;
+}
+
+.kydt {
+    position: relative;
+    margin: 10px auto;
+    width: 300px;
+    bottom: 10px;
+}
+
+.kaydt_btn {
+    width: 90px;
+    height: auto;
+    padding: 1px 2px 1px 2px;
+    text-align: center;
+    border-radius: 15px;
+    cursor: pointer;
+    background: linear-gradient(to right, #5a8ed4, #2c3aa5);
+    margin: 0px auto;
+    -webkit-box-shadow: 8px 13px 30px -9px rgba(38, 38, 38, 0.82);
+    -moz-box-shadow: 8px 13px 30px -9px rgba(38, 38, 38, 0.82);
+    box-shadow: 8px 13px 30px -9px rgba(38, 38, 38, 0.82);
+}
+
+.kaydt_btn p {
+    font-weight: 600;
+    font-size: 16px;
+    font-family: 'Century Gothic';
+    color: white;
+}
+
+.kaydt_btn img {
+    margin: 7px;
+    width: 35px;
+    height: 35px;
+}
+
+.dip_not {
+    position: relative;
+    margin: 20px auto;
+    width: 325px;
+}
+
+.dip_not ul {
+    list-style-type: none;
+    padding: 0px;
+    text-align: center;
+}
+
+.dip_not ul li {
+    margin-right: 5px;
+    margin-left: 5px;
+    display: inline-block;
+}
+
+.dip_not ul li .yeni {
+    float: left;
+    width: 15px;
+    height: 15px;
+    background-color: #d5bf05;
+}
+
+.dip_not ul li .kaplama {
+    float: left;
+    width: 15px;
+    height: 15px;
+    background-color: #124ada;
+}
+
+.dip_not ul li .dis_acma {
+    float: left;
+    width: 15px;
+    height: 15px;
+    background-color: #d54e05;
+}
+
+.dip_not ul li .oe {
+    float: left;
+    width: 15px;
+    height: 15px;
+    background-color: #ff0202;
+}
+
+.dip_not p {
+    float: left;
+    font-size: 14px;
+    font-family: 'Century Gothic';
+    margin-top: 1px;
+    margin-left: 3px;
+    font-weight: 600;
+}
+
+.kirpi {
+    opacity: 0.7;
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+}
+
+.kirpi img {
+    width: 40px;
+    height: 40px;
+}
+
+.kirpi a {
+    text-decoration: none;
+    margin-bottom: 0%;
+    float: right;
+}
